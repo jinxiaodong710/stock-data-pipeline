@@ -1,0 +1,13 @@
+data/
+output/
+__pycache__/
+*.pyc
+*.duckdb
+*.duckdb.wal
+.DS_Store
+*.log
+nohup.out
+tmp/
+venv/
+.venv/
+AlphaGPT_Tushare/
