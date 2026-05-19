@@ -25,7 +25,8 @@ AFTER_CLOSE_SLEEP_SECONDS=float(os.getenv('AFTER_CLOSE_SLEEP_SECONDS','10.0'))
 STAT_SECONDS=float(os.getenv('STAT_SECONDS','30.0'))
 FORCE_RUN_ALL_DAY=os.getenv('FORCE_RUN_ALL_DAY','0') == '1'
 SAVE_RAW_MESSAGES=os.getenv('SAVE_RAW_MESSAGES','0') == '1'
-DATA_DIR=Path(os.getenv('DATA_DIR','data')); DATA_DIR.mkdir(parents=True, exist_ok=True)
+_default_data = Path(__file__).resolve().parent / 'data'
+DATA_DIR=Path(os.getenv('DATA_DIR', str(_default_data))); DATA_DIR.mkdir(parents=True, exist_ok=True)
 PREFIXES=tuple(x.strip() for x in os.getenv('STOCK_PREFIXES','00,30,60,68').split(',') if x.strip())
 MAX_SCAN_KEYS=int(os.getenv('MAX_SCAN_KEYS','0'))
 CST_TZ = timezone(timedelta(hours=8))
