@@ -1,17 +1,15 @@
-import socket
-import struct
-import time
+import os, socket, struct, time
 from datetime import datetime, time as dt_time
 
 import redis
 
 
-TCP_HOST = "qt1.chagubang.com"
-TCP_PORT = 8380
-TCP_TOKEN = "HS_QTkBkpzKuchvcK3E"
+TCP_HOST = os.getenv("TCP_HOST", "qt1.chagubang.com")
+TCP_PORT = int(os.getenv("TCP_PORT", "8380"))
+TCP_TOKEN = os.getenv("TCP_TOKEN", "HS_QTkBkpzKuchvcK3E")
 
-REDIS_HOST = "localhost"
-REDIS_PORT = 6379
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
 
 BATCH_SIZE = 2000
 FLUSH_INTERVAL_SECONDS = 1.0

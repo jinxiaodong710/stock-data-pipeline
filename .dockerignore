@@ -1,0 +1,11 @@
+data/
+output/
+__pycache__/
+*.duckdb
+*.log
+.git/
+pkg/
+stock-analysis/
+tmp_pdf/
+*.bak
+.DS_Store

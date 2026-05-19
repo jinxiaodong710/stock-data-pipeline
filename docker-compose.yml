@@ -1,0 +1,51 @@
+# L1 Stock Data Pipeline
+# 启动: docker compose up -d
+# 查看: docker compose logs -f
+# 停止: docker compose down
+
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+
+  receiver:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python -u redis_data_receiver1.3.py
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+
+  writer:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python -u writer_service_optimized.py
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      DATA_DIR: /app/data
+    volumes:
+      - stock_data:/app/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+
+volumes:
+  redis_data:
+  stock_data:
