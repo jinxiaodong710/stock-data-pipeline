@@ -9,7 +9,7 @@ proxies:
     type: ss
     server: 43.155.197.236
     port: 8388
-    cipher: aes-256-gcm
+    cipher: chacha20-ietf-poly1305
     password: kImiAHzHcSbNoryHzdkJGQ==
 
 proxy-groups:
