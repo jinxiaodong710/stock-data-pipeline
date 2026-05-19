@@ -1,0 +1,35 @@
+{
+  "library": [
+    {
+      "id": 24,
+      "name": "通用震荡型",
+      "lookback": 10, "hold_days": 1, "threshold": 0.005,
+      "stop_loss": 0.1, "profit_take": 0.1,
+      "w_ret": 1.0, "w_ma": 1.0, "w_vol": 1.0,
+      "win_rate": "7/20", "note": "适合弱势/震荡股，BH<50%时使用"
+    },
+    {
+      "id": 25,
+      "name": "保守震荡型",
+      "lookback": 5, "hold_days": 1, "threshold": 0.005,
+      "stop_loss": 0.1, "profit_take": 0.1,
+      "w_ret": 0.3, "w_ma": 0.5, "w_vol": 0.5,
+      "win_rate": "7/20", "note": "权重更保守"
+    },
+    {
+      "id": 29,
+      "name": "长周期型",
+      "lookback": 30, "hold_days": 1, "threshold": 0.03,
+      "stop_loss": 0.07, "profit_take": 0.15,
+      "w_ret": 0.7, "w_ma": 1.0, "w_vol": 1.0,
+      "win_rate": "7/20", "note": "更长回溯期"
+    }
+  ],
+  "rules": {
+    "trending": "BH>100%或MA20连续上升→不择时，持股",
+    "ranging": "BH<50%且MA20走平→用因子#24",
+    "bearish": "BH<0%→用因子#24，止损放宽到0.12"
+  },
+  "updated": "2026-05-19",
+  "next": "等新数据日线更新后，用同样因子回测新的一批票验证稳健性"
+}
