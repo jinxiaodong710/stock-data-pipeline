@@ -12,7 +12,7 @@ if ! command -v docker &>/dev/null; then
 fi
 
 # Docker 容器状态（10秒超时防卡死）
-CT=$(timeout 10 docker compose -f ~/go/docker-compose.yml ps 2>/dev/null || echo "")
+CT=$(docker compose -f ~/go/docker-compose.yml ps 2>/dev/null || echo "")
 REC=$(echo "$CT" | grep -E "receiver.*Up" | wc -l | tr -d ' ')
 WRI=$(echo "$CT" | grep -E "writer.*Up" | wc -l | tr -d ' ')
 RDS=$(echo "$CT" | grep -E "redis.*healthy" | wc -l | tr -d ' ')
