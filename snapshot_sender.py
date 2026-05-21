@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 Redis 取全市场快照，通过 SSH 发到首尔"""
+"""从 Redis 取全市场快照，管道发到首尔"""
 import os, redis, json, sys, subprocess
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
@@ -14,7 +14,6 @@ for k in keys:
         raw = r.get(k)
         if not raw: continue
         parts = raw.decode('utf-8', errors='replace').split('$')
-        # L1格式: code$name$ts$open$high$low$last$vol$amt$...[五档]...$turnover$pre_close$up$down
         if len(parts) < 30: 
             skipped += 1; continue
         
@@ -50,9 +49,8 @@ proc = subprocess.run(
     ['ssh', '-o', 'ProxyCommand=none', '-i',
      '/Users/jin/.ssh/tencent_cloud',
      'ubuntu@43.155.197.236',
-     'python3 ~/go/snapshot_receiver.py'],
-    input=data, capture_output=True, text=True, timeout=30
+     'python3 ~/go/snapshot_receiver_batch.py'],
+    input=data, capture_output=True, text=True, timeout=90
 )
 print(proc.stdout.strip() if proc.stdout else proc.stderr.strip()[:100])
 print(f'StockCount:{len(rows)}')
-

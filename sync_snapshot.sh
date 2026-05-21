@@ -24,5 +24,5 @@ except Exception as e:
 " 2>/dev/null
 
 [ -f /tmp/snapshot.jsonl ] && /usr/bin/scp -o ProxyCommand=none -o ConnectTimeout=5 -i /Users/jin/.ssh/tencent_cloud /tmp/snapshot.jsonl ubuntu@43.155.197.236:/tmp/snapshot.jsonl 2>/dev/null && \
-/usr/bin/ssh -o ProxyCommand=none -o ConnectTimeout=5 -i /Users/jin/.ssh/tencent_cloud ubuntu@43.155.197.236 "python3 ~/go/snapshot_receiver.py < /tmp/snapshot.jsonl" 2>/dev/null && \
+/usr/bin/ssh -o ProxyCommand=none -o ConnectTimeout=5 -i /Users/jin/.ssh/tencent_cloud ubuntu@43.155.197.236 "docker exec -i seoul-data python3 /app/snapshot_receiver.py < /tmp/snapshot.jsonl" 2>/dev/null && \
 echo "$(date +%H:%M:%S) OK" >> /tmp/sync.log
