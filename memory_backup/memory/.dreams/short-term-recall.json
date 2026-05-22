@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T02:31:28.745Z",
+  "updatedAt": "2026-05-22T14:00:08.886Z",
   "entries": {
     "memory:memory/2026-05-16.md:1:29": {
       "key": "memory:memory/2026-05-16.md:1:29",
@@ -334,18 +334,20 @@
       "endLine": 28,
       "source": "memory",
       "snippet": "- **盘中实时排行榜**: 之前 HEARTBEAT.md 写了但从未配 cron，新增「盘中实时排行榜」cron：北京 9:00-15:00 每30分钟，从 Redis L1 数据读涨停/大涨/跌幅/高换手 - **每日对话总结**: 设了一次性 at cron，但 isolated agent 写入失败，手动补了本条 ## 行情数据 - **5/20 板块排名**: 半导体全线领涨（集成电路+6.78%，半导体设备+6.18%），电力板块暴跌（火电-5.81%） - **5/21 盘中**: 上证 4194 (+0.78%)，显示技术爆发（屏下摄像+5.45%，玻璃基板+5.43%），券商+3.36% 也起来了 - web_search 全天超时（Brave API），手动用新浪/首尔Tushare兜底 ## 遗留 - 首尔缺少 stock_basic_info / ths_concept_members 表（轻量） - 采集脚本全量 DELETE+INSERT 每次 47 分钟，可优化为增量 - macOS crontab 在 sandbox 环境挂住，统一用 OpenClaw cron",
-      "recallCount": 4,
+      "recallCount": 6,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3.4157273015761955,
+      "totalScore": 4.929686770167407,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-21T07:18:50.620Z",
-      "lastRecalledAt": "2026-05-22T02:31:28.745Z",
+      "lastRecalledAt": "2026-05-22T11:00:13.352Z",
       "queryHashes": [
         "cf9f5c832c74",
         "ff84ac18c9cf",
         "c779b0814160",
-        "e43650e7725b"
+        "e43650e7725b",
+        "6596d73707bc",
+        "848c55329386"
       ],
       "recallDays": [
         "2026-05-21",
@@ -369,17 +371,20 @@
       "endLine": 20,
       "source": "memory",
       "snippet": "# 2026-05-20 (周二) 记录 ## 数据架构优化（重大调整） - **问题**: 首尔、Mac 各自独立拉 Tushare 日线数据，两台 stock_data.duckdb 完全重复（各 815MB/7M行） - **方案**: 首尔为唯一数据中心，Mac/上海从首尔 SCP 同步 ### 执行细节 1. **首尔 END_DATE 修复**: 从写死 `'2026-05-15'` 改为动态 `datetime.date.today()` 2. **首尔 Docker**: seoul-data 容器 exit 137 OOM，已重启 3. **Mac 同步**: 新建 `~/go/sync_from_seoul.sh`，OpenClaw cron 工作日 PDT 03:00 自动 SCP 4. **上海小五**: 配了 SSH config + sync 脚本，SCP 测试成功但数据当时过期被跳过 5. **L1 实时行情**: Mac Docker 不变，独立系统不冲突 ## 定时任务修复/新增 - **新闻早报**: cron 报错原因是 `--account` 填成了小五飞书 bot ID (e99c509c715b)，修正为默认微信账号 ✅ - **盘中实时排行榜**: 之前 HEARTBEAT.md 写了但从未配 cron，新增「盘中实时排行榜」cron：北京 9:00-15:00 每30分钟，从 Redis L1 数据读涨停/大涨/跌幅/高换手 - **每日对话总结**: 设了一次性 at cron，但 isolated agent 写入失败，",
-      "recallCount": 3,
+      "recallCount": 6,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2.63178664397235,
+      "totalScore": 4.527147343520506,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-21T12:18:12.075Z",
-      "lastRecalledAt": "2026-05-21T21:49:44.429Z",
+      "lastRecalledAt": "2026-05-22T14:00:08.886Z",
       "queryHashes": [
         "3a4f5b0ed238",
         "ff84ac18c9cf",
-        "652beadafb04"
+        "652beadafb04",
+        "48e875e65a17",
+        "848c55329386",
+        "8e41d6fa61cc"
       ],
       "recallDays": [
         "2026-05-21",
@@ -394,6 +399,70 @@
         "seoul-data",
         "go/sync-from-seoul.sh",
         "定时任务修复/新增"
+      ]
+    },
+    "memory:memory/2026-05-22.md:23:36": {
+      "key": "memory:memory/2026-05-22.md:23:36",
+      "path": "memory/2026-05-22.md",
+      "startLine": 23,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "- 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错定价（当成美元）而偏大，实际是人民币 ## 新闻早报 - Brave web_search 超时，改用本地 s 命令 + 新浪财经直抓 - cron 超时从 30s → 300s ## 对话总结 - 拆成中午 12:00 + 午夜 0:00 两次 - HEARTBEAT 对话保存改为全天制",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6350013527363814,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-22T06:01:38.165Z",
+      "lastRecalledAt": "2026-05-22T11:00:13.352Z",
+      "queryHashes": [
+        "6596d73707bc",
+        "848c55329386"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "5/21",
+        "7.57",
+        "web-search",
+        "小五",
+        "通过",
+        "deepseek",
+        "用量",
+        "存命"
+      ]
+    },
+    "memory:memory/2026-05-22.md:1:30": {
+      "key": "memory:memory/2026-05-22.md:1:30",
+      "path": "memory/2026-05-22.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# 2026-05-22 (周五) 记录 ## 记忆整理 - 晓东问\"记忆总结了吗\"，触发系统性记忆维护 - 从 5/20-5/21 daily 提炼关键信息更新到 MEMORY.md： - 数据架构重构（首尔唯一数据中心） - 服务器清单（含新服务器 111.229.0.148） - 定时任务清单 - Silent Replies 规则 - 旧「定时任务」section 改名为「OpenClaw Cron 使用技巧」，避免重复 ## 板块涨幅修复（重大） - 🐛 问题：盘中排行榜板块涨幅用 Tushare 日线 `ths_daily`，盘中没当天数据 fallback 到旧日 - 🐛 同花顺小众概念板块（如公路与铁路）成分股少，单日涨幅失真（+12.41%） - 🐛 我误判 5/22 为周六，晓东纠正——今天是周五交易日 - ✅ 修复：改 L1 实时行情 + 行业/概念分类中位数聚合 - 新脚本：`~/go/sector_cache_live.py`，缓存 `/tmp/sector_cache.txt` - `~/go/cache_sectors.sh` 已更新，不再 SSH 首尔 ## Mac → 小五 增量同步 - `~/go/mac_to_xiaowu_sync.py` 完成并实测通过 - parquet 增量导出 + SCP + DELETE/INSERT upsert - 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6317866666360996,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-22T06:01:38.165Z",
+      "lastRecalledAt": "2026-05-22T11:00:13.352Z",
+      "queryHashes": [
+        "6596d73707bc",
+        "848c55329386"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "5/20-5/21",
+        "memory.md",
+        "111.229.0.148",
+        "ths-daily",
+        "12.41",
+        "5/22",
+        "行业/概念分类中位数聚合",
+        "go/sector-cache-live.py"
       ]
     }
   }
