@@ -84,6 +84,52 @@ python3.13 -u run_historical_collection.py
 
 ---
 
+## 🏗️ 数据架构（2026-05-20 重构）
+
+### 核心决策：首尔为唯一数据中心
+- **首尔 (43.155.197.236)**: 唯一的 Tushare 日线数据采集节点，运行 Docker `seoul-data`
+- **Mac**: 不再独立采集，通过 cron 每日从首尔 SCP 同步 `stock_data.duckdb`
+- **上海小五**: 同理从首尔同步
+- **原因**: 之前三台机器各自拉全量日线，815MB/7M行 完全重复，浪费带宽和 API 额度
+
+### 同步脚本
+- Mac: `~/go/sync_from_seoul.sh`，OpenClaw cron 工作日 PDT 03:00 自动触发
+- 上海: `/root/sync_from_seoul.sh`，手动或 cron
+
+### L1 实时行情独立
+- Mac 本地 Docker 的 Redis receiver + writer 不受影响，继续接收全推行情
+
+---
+
+## 🖥️ 服务器清单
+
+| 名称 | IP | 系统 | 角色 |
+|------|-----|------|------|
+| 首尔 | 43.155.197.236 | Ubuntu | 数据中心, Docker |
+| 上海小五 | (腾讯云巡检机) | - | 被调度节点 |
+| 新服务器 | 111.229.0.148 | OpenCloudOS 9.4 | 国内跳板 |
+
+### 新服务器（2026-05-21）
+- IP: 111.229.0.148（腾讯云国内，不在晓东自己账号下）
+- 系统: OpenCloudOS 9.4，用户: root
+- 配置: 4核 / 3.6G RAM / 40G SSD
+- Python 3.11.6 已自带，未装 Docker/Node.js/Git
+- 密码: 6cvhmR9M:%UC+
+
+---
+
+## ⏰ 定时任务清单
+
+| 任务 | 频率 | 说明 |
+|------|------|------|
+| 新闻早报 | 工作日北京 8:30 | 财经新闻摘要 |
+| 盘中实时排行榜 | 北京 9:00-15:00 每30分钟 | 个股(Rdis L1) + 板块(首尔Tushare) TOP10 |
+| Mac数据同步 | 工作日 PDT 03:00 | SCP 从首尔同步 stock_data.duckdb |
+| 对话总结-中午 | 北京 12:00 | 过去24h对话摘要 → DuckDB + 微信推送 |
+| 对话总结-午夜 | 北京 0:00 | 过去24h对话摘要 → DuckDB + 微信推送 |
+
+---
+
 ## 头像
 
 - 米娅头像: `~/.openclaw/workspace/mia-avatar.png` (粉色小猫 SVG 转 PNG)
@@ -91,7 +137,7 @@ python3.13 -u run_historical_collection.py
 
 ---
 
-## 定时任务
+## OpenClaw Cron 使用技巧
 
 - 用 `openclaw cron add` 创建
 - 独立 session (`isolated`) 需要明确指定 `--channel` 和 `--to`
@@ -132,3 +178,8 @@ python3.13 -u run_historical_collection.py
 - **2026-05-18（下周一）**：+量比[33]，内盘→[34]，外盘→[35]
 
 ---
+
+## Silent Replies
+- 当无话可说时，回复 ONLY: `NO_REPLY`
+- ⚠️ 必须是整条消息，不能和其他内容混在一起
+- 不能包裹在 markdown 或代码块中
