@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T14:00:08.886Z",
+  "updatedAt": "2026-05-22T18:00:07.875Z",
   "entries": {
     "memory:memory/2026-05-16.md:1:29": {
       "key": "memory:memory/2026-05-16.md:1:29",
@@ -371,24 +371,26 @@
       "endLine": 20,
       "source": "memory",
       "snippet": "# 2026-05-20 (周二) 记录 ## 数据架构优化（重大调整） - **问题**: 首尔、Mac 各自独立拉 Tushare 日线数据，两台 stock_data.duckdb 完全重复（各 815MB/7M行） - **方案**: 首尔为唯一数据中心，Mac/上海从首尔 SCP 同步 ### 执行细节 1. **首尔 END_DATE 修复**: 从写死 `'2026-05-15'` 改为动态 `datetime.date.today()` 2. **首尔 Docker**: seoul-data 容器 exit 137 OOM，已重启 3. **Mac 同步**: 新建 `~/go/sync_from_seoul.sh`，OpenClaw cron 工作日 PDT 03:00 自动 SCP 4. **上海小五**: 配了 SSH config + sync 脚本，SCP 测试成功但数据当时过期被跳过 5. **L1 实时行情**: Mac Docker 不变，独立系统不冲突 ## 定时任务修复/新增 - **新闻早报**: cron 报错原因是 `--account` 填成了小五飞书 bot ID (e99c509c715b)，修正为默认微信账号 ✅ - **盘中实时排行榜**: 之前 HEARTBEAT.md 写了但从未配 cron，新增「盘中实时排行榜」cron：北京 9:00-15:00 每30分钟，从 Redis L1 数据读涨停/大涨/跌幅/高换手 - **每日对话总结**: 设了一次性 at cron，但 isolated agent 写入失败，",
-      "recallCount": 6,
+      "recallCount": 7,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 4.527147343520506,
+      "totalScore": 5.158933976178853,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-21T12:18:12.075Z",
-      "lastRecalledAt": "2026-05-22T14:00:08.886Z",
+      "lastRecalledAt": "2026-05-22T18:00:07.875Z",
       "queryHashes": [
         "3a4f5b0ed238",
         "ff84ac18c9cf",
         "652beadafb04",
         "48e875e65a17",
         "848c55329386",
-        "8e41d6fa61cc"
+        "8e41d6fa61cc",
+        "017d0c9cf340"
       ],
       "recallDays": [
         "2026-05-21",
-        "2026-05-22"
+        "2026-05-22",
+        "2026-05-23"
       ],
       "conceptTags": [
         "stock-data.duckdb",
