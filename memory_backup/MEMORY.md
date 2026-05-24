@@ -261,7 +261,8 @@ python3.13 -u run_historical_collection.py
 |------|------|------|
 | 新闻早报 | 工作日北京 8:30 | 财经新闻摘要 |
 | 盘中实时排行榜 | 工作日北京 10:00-15:00 每小时 | 个股(Redis L1) + 板块(首尔Tushare) TOP10
-| Mac数据同步 | 工作日 PDT 03:00 | SCP 从首尔同步 stock_data.duckdb |
+| Mac数据同步 | 工作日 PDT 03:00 | 从首尔SCP同步 stock_data.duckdb（cron 1cbd68ac，2026-05-24重建）|
+| 首尔快照API保活 | 每30分钟 | curl检查:8081/health，卡死自动重启 |
 | 对话总结-中午 | 工作日北京 12:00 | 过去24h对话摘要 → DuckDB（不推送微信）|
 | 对话总结-午夜 | 工作日北京 0:00 | 过去24h对话摘要 → DuckDB（不推送微信）|
 | 对话存档-白天 | 工作日北京 6-22点每2h | 对话存档 → DuckDB（不推送微信）|
