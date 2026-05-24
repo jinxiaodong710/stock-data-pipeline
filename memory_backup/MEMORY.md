@@ -224,14 +224,34 @@ python3.13 -u run_historical_collection.py
 |------|-----|------|------|
 | 首尔 | 43.155.197.236 | Ubuntu | 数据中心, Docker |
 | 上海小五 | (腾讯云巡检机) | - | 被调度节点 |
-| 新服务器 | 111.229.0.148 | OpenCloudOS 9.4 | 国内跳板 |
+| 红牛 | 111.229.0.148 | OpenCloudOS 9.4 | Hermes实例 |
+| NAS | 192.168.3.40 | UGREEN-1460 | 绿联NAS，SMB共享 |
 
-### 新服务器（2026-05-21）
+### NAS（2026-05-24）
+- IP: 192.168.3.40（内网）
+- 型号: 绿联 UGREEN-1460
+- 用户: bigboy
+- 密码: Duo710710
+- 共享目录: bigboy_存储空间1（主空间），bigboy_存储空间2，各有_公共空间
+- 内网笔记本: 192.168.3.35，用户 xiaodong，PIN码 0099
+
+### 自动备份到 NAS（2026-05-22 设置）
+- cron 每天早上 5:00 打包记忆文件 → `bigboy_存储空间1_公共空间/米娅备份/`
+- 全量备份: `mia_full_YYYYMMDD.tar.gz`（含 workspace 全部）
+- 增量记忆: `mia_memory_YYYYMMDD_HHmm.tar.gz`
+- 灾难恢复手册: NAS 上 `米娅备份/灾难恢复.md`
+- 备机: maomao (192.168.3.30)，Mac Mini 挂了就去那台启动
+- 所以：NAS 信息要记住！备份体系也要记住！不然等于白建
+
+### 红牛（2026-05-21，原名「新服务器」）
 - IP: 111.229.0.148（腾讯云国内，不在晓东自己账号下）
 - 系统: OpenCloudOS 9.4，用户: root
 - 配置: 4核 / 3.6G RAM / 40G SSD
 - Python 3.11.6 已自带，未装 Docker/Node.js/Git
 - 密码: 6cvhmR9M:%UC+
+- 角色: Hermes Agent 网关（systemd user service: hermes-gateway.service）
+- 模型: gpt-5.5 via Schyler中转 (https://api.schyler.top/v1)
+- 平台: 飞书 websocket
 
 ---
 
