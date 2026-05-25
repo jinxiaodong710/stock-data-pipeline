@@ -347,3 +347,10 @@ python3.13 -u run_historical_collection.py
 - 当无话可说时，回复 ONLY: `NO_REPLY`
 - ⚠️ 必须是整条消息，不能和其他内容混在一起
 - 不能包裹在 markdown 或代码块中
+
+## 🚨 数据采集脚本修复提醒（2026-05-25）
+- `run_historical_collection.py` 中的 `ts.pro_bar()` 已被 Tushare **废弃**
+- 替代：`pro.daily()` 可正常返回数据
+- 临时补采：`~/go/fix_missing_data.py`（5/25已验证可用）
+- cron已改到工作日 16:10(京)，但主脚本不改好跑也是空的
+
