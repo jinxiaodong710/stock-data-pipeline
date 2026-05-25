@@ -216,6 +216,13 @@ python3.13 -u run_historical_collection.py
 ### L1 实时行情独立
 - Mac 本地 Docker 的 Redis receiver + writer 不受影响，继续接收全推行情
 
+## 🚀 head_class_selector.py（头等舱选股）
+- 位置: Mac `~/go/head_class_selector.py` + 首尔 `~/go/head_class_selector.py`
+- **动态持股逻辑（2026-05-25）**: 创业板指(399006)前10交易日涨幅>6.5% → 多持1天(3→4天)
+- 参数: `--index-code 399006` / `--index-lookback-days 10` / `--dynamic-hold-threshold 6.5` / `--base-hold-days 3`
+- 输出含「计划持股X天」, JSON含 `dynamic_hold` 字段
+- 晓东说需要推送时再调用，不自动推送
+
 ---
 
 ## 🖥️ 服务器清单

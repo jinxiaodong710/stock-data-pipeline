@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T18:00:07.875Z",
+  "updatedAt": "2026-05-25T02:01:07.755Z",
   "entries": {
     "memory:memory/2026-05-16.md:1:29": {
       "key": "memory:memory/2026-05-16.md:1:29",
@@ -465,6 +465,133 @@
         "5/22",
         "行业/概念分类中位数聚合",
         "go/sector-cache-live.py"
+      ]
+    },
+    "memory:memory/2026-05-22.md:23:44": {
+      "key": "memory:memory/2026-05-22.md:23:44",
+      "path": "memory/2026-05-22.md",
+      "startLine": 23,
+      "endLine": 44,
+      "source": "memory",
+      "snippet": "- 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错定价（当成美元）而偏大，实际是人民币 ## 新闻早报 - Brave web_search 超时，改用本地 s 命令 + 新浪财经直抓 - cron 超时从 30s → 300s ## 对话总结 - 拆成中午 12:00 + 午夜 0:00 两次 - HEARTBEAT 对话保存改为全天制 ## 夜间对话存档 (02:00 5/23) - 检查 20:02~02:00 期间：无新对话产生 - 补录 3 条遗漏（mia_memory→workspace conversations）： - #14 首尔快照API上线 (早5点决策) - #15 上海高考志愿Excel完成 (下午完成) - #16 增量同步最终架构拍板 (凌晨决策) - workspace conversations.duckdb 总计 16 条记录",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.6330780695760803,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-24T22:12:55.263Z",
+      "lastRecalledAt": "2026-05-25T02:01:07.755Z",
+      "queryHashes": [
+        "56b68e95738b",
+        "6ddc269fe453",
+        "52ad689ed521"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "5/21",
+        "7.57",
+        "web-search",
+        "5/23",
+        "mia-memory",
+        "conversations.duckdb",
+        "小五",
+        "通过"
+      ]
+    },
+    "memory:memory/2026-05-23.md:1:32": {
+      "key": "memory:memory/2026-05-23.md:1:32",
+      "path": "memory/2026-05-23.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# 2026-05-23 周六 ## 🚨 晓东指令：周末休市不发排行榜 晓东明确说「周末不要发，现在休市」，已记入 MEMORY.md 铁律： - **周末一律不发送任何股市排行榜/行情推送** - 盘中实时排行榜严格限制在交易日 9:30-15:00 - 非交易日 cron 触发 → 静默跳过，不发消息 ## 🧠 上下文机制学习 晓东详细讲解了上下文怎么传给模型，纠正了我之前的错误理解。 **关键认知纠正：** 不是「所有历史对话全文无脑打包」传给模型，而是「按需重组拼装」。 ### 分层结构 | 层级 | 策略 | |------|------| | 系统提示 | ✅ 最稳定，几乎必带 | | 当前会话消息 | ✅ 相关消息带上，太长则压缩 | | 工具调用结果 | ⚠️ 太长截断，只保留关键部分 | | 持久记忆 | ✅ 提炼后的长期事实，不是全文 | | 技能（skill） | 🔸 按需加载，不是全部默认塞 | | 历史会话 | 🔸 档案库，按需检索，不默认全带 | ### 什么时候会丢内容？ - 上下文太长 → 系统自动压缩成摘要（HEARTBEAT里的手动截断不需要了） - 工具输出太长 → 截断/分页/摘要 - 话题切换多轮 → 旧话题弱化 ### HEARTBEAT.md 旧备注已确认可删除",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.6328997220782286,
+      "maxScore": 0.6328997220782286,
+      "firstRecalledAt": "2026-05-24T22:12:55.263Z",
+      "lastRecalledAt": "2026-05-24T22:12:55.263Z",
+      "queryHashes": [
+        "56b68e95738b"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "memory.md",
+        "周末一律不发送任何股市排行榜/行情推送",
+        "30-15",
+        "截断/分页/摘要",
+        "heartbeat.md",
+        "周六",
+        "指令",
+        "周末"
+      ]
+    },
+    "memory:memory/2026-05-23.md:47:77": {
+      "key": "memory:memory/2026-05-23.md:47:77",
+      "path": "memory/2026-05-23.md",
+      "startLine": 47,
+      "endLine": 77,
+      "source": "memory",
+      "snippet": "| 对话总结-午夜 | 每天 0点，推微信(任务内嵌message send) | 仅工作日，删掉message send，不推微信 | | 每日新闻早报 | 每天 6点，推微信 | 仅工作日，推微信 | | 盘中实时排行榜 | 工作日 9-15每30分钟 | 工作日 10-15每小时 | ## 🔍 真正元凶：launchd push_monitor（13:19发现） **问题：** 改完 cron 后，13:19 还是收到股票推送。排查发现真正的始作俑者不在 cron，而是 **launchd 系统级定时任务**，绕过 OpenClaw 直接推微信。 ### com.stock.push-monitor - 脚本：`~/go/push_monitor.sh`（SSH首尔拉 `/tmp/market_monitor.txt`） - 间隔：原来900秒(15分钟)→ 改为3600秒(1小时) - 修复：加工作日判断 `WDAY=$(TZ=\"Asia/Shanghai\" date +%u); [ \"$WDAY\" -gt 5 ] && exit 0` - 时间判断：10:00-11:30, 13:00-15:05，但没有工作日判断 ### com.stock.snapshot - 脚本：`~/go/snapshot_loop.sh`（30秒快照循环） + `snapshot_sender.py` - 修复：周末检测放入 while 循环内，sleep 3600 再 continue ### 修复命令 ```bash launchctl unload ~/Library/L",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-24T22:35:57.775Z",
+      "lastRecalledAt": "2026-05-24T22:36:00.063Z",
+      "queryHashes": [
+        "31a2e53e3bf2",
+        "3c915284982d"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "对话总结-午夜",
+        "9-15每30分钟",
+        "10-15每小时",
+        "push-monitor",
+        "com.stock.push-monitor",
+        "go/push-monitor.sh",
+        "tmp/market-monitor.txt",
+        "asia/shanghai"
+      ]
+    },
+    "memory:memory/2026-05-24.md:1:33": {
+      "key": "memory:memory/2026-05-24.md:1:33",
+      "path": "memory/2026-05-24.md",
+      "startLine": 1,
+      "endLine": 33,
+      "source": "memory",
+      "snippet": "# 2026-05-24 (周日) ## 💡 晓东说：涉及记忆的事都最重要 自己建了的备份体系不记得，说明 MEMORY.md 该记的没记。铁律：**做过的设置、写过的文件、搭过的系统，只要和我有关的，都得写进 MEMORY.md，不能只存在文件里。** ## 🧠 今日重要记录 ### 1. 内部数据流架构确认 - 用户 → 米娅(OpenClaw/Mac) → 小五(OpenClaw/上海) → 首尔（数据中心） - 红牛(Hermes/上海) 单独跑飞书bot，不走数据流 ### 2. NAS连接信息确认 - 192.168.3.40（UGREEN-1460），用户bigboy，密码Duo710710 - SMB共享已挂载使用 - 已有自动备份体系（米娅备份/目录） ### 3. 内网笔记本 - 192.168.3.35，用户xiaodong，PIN码0099 - 端口全关（SSH/RDP/SMB都关着），暂时无法远程 ### 4. 首尔快照API修复 - snapshot_api.py（端口8081）进程运行4天后卡死 - 重启后恢复，加了每30分钟健康检查cron - API端点: /health, /api/snapshot, /api/ranking, /api/batch ### 5. Mac数据同步问题 - 根因：同步cron在5/23重组时被误删 - 同步脚本(sync_from_seoul.sh) 5/21起SCP一直大小校验失败 - DB文件损坏（1.1G但只有92行） - 修复：加回cron（1cbd68ac），补了3~5月数据（29万",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-25T00:59:12.615Z",
+      "lastRecalledAt": "2026-05-25T00:59:12.615Z",
+      "queryHashes": [
+        "3fe9926e4143"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "备份",
+        "memory.md",
+        "openclaw/mac",
+        "openclaw/上海",
+        "hermes/上海",
+        "192.168.3.40",
+        "ugreen-1460",
+        "米娅备份/目录"
       ]
     }
   }
