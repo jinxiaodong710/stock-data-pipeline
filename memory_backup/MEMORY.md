@@ -354,3 +354,24 @@ python3.13 -u run_historical_collection.py
 - 临时补采：`~/go/fix_missing_data.py`（5/25已验证可用）
 - cron已改到工作日 16:10(京)，但主脚本不改好跑也是空的
 
+## 🚨 数据补采教训（2026-05-26）
+
+### 问题记录
+- 5/25 `采集并推送` cron 超时 → 只采了427条
+- 我手动补数据时踩了两个坑：
+  1. `pro.daily()` 只有 OHLCV，**没有 `adj_close` 和 `total_mv`** → 头等舱直接全灭
+  2. **股票代码格式不一致**：新数据带 `.SZ` 后缀，老数据不带 → pct_change 全 NaN
+
+### 正确补采步骤
+1. 先删不完整的数据：`DELETE FROM stock_prices WHERE date = 'YYYYMMDD'`
+2. 插 OHLCV：`pro.daily(trade_date='...')` → 需去掉 `.SZ`/`.SH` 后缀
+3. 补 adj_close：`pro.adj_factor(trade_date='...')` → `adj_close = close * adj_factor`
+4. 补 total_mv：`pro.daily_basic(trade_date='...')`
+5. 股票代码统一格式：**不带后缀**（`300001` 而不是 `300001.SZ`）
+6. 日期统一格式：**`YYYYMMDD`** 不带横杠
+
+### 铁律
+- ❌ 不用 `pro.daily()` 单独补数据，缺字段
+- ✅ 用 `stock_data_collector.py` 的专用接口或完整流程
+- ✅ 补数据前先查现有数据的代码和日期格式
+
