@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-26T06:00:24.354Z",
+  "updatedAt": "2026-05-27T02:01:10.236Z",
   "entries": {
     "memory:memory/2026-05-16.md:1:29": {
       "key": "memory:memory/2026-05-16.md:1:29",
@@ -639,18 +639,20 @@
       "endLine": 46,
       "source": "memory",
       "snippet": "- 收到PDF（8.4MB扫描版），用 HP_Deskjet_3540 黑白高质打印 - 晓东说打这个机器 ## 📊 回天新材(300041) - 5/25大涨+13.28%，收14.25元，成交量异常放大 - 网上价格和数据库对不上，说明采集脚本坏了 ## 🔧 记忆数据库修复（三层记忆系统） - 数据库 ~/.openclaw/mia_memory.duckdb (7.4MB) 结构完好 - conversations表57条记录，但存档cron（每2小时）走的isolated session无法访问当前上下文 - 修复：对话存档cron改为直接调用 ~/go/archive_conversations.py 脚本从会话文件提取 - daily_summary.py 改版：去掉硬编码的GPT-5.5 API调用，改为纯本地Python总结 - 对话总结cron已更新，不再依赖外部API ## 🖥️ 红牛服务器修复（111.229.0.148） - 升级Hermes后奔溃，root cause: config.yaml的 model.api_key 字段在升级时丢失 - 修复：补回Schyler API key，重启Hermes Gateway systemd服务 - 飞书已重新连通 - kanban.db损坏（非标准SQLite格式），影响不大 ## 🌐 首尔Hysteria2 + Trojan部署尝试 - 腾讯云安全组封UDP端口，Hysteria2连不通 - Trojan试了8443端口也被封 - 晓东手动开了UDP 443 → Hy2已连通但速度与SS几",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 0.6324110774869,
-      "maxScore": 0.6324110774869,
+      "totalScore": 1.6185720219197886,
+      "maxScore": 0.9861609444328886,
       "firstRecalledAt": "2026-05-26T06:00:24.354Z",
-      "lastRecalledAt": "2026-05-26T06:00:24.354Z",
+      "lastRecalledAt": "2026-05-27T02:01:10.236Z",
       "queryHashes": [
-        "ca6200731cc1"
+        "ca6200731cc1",
+        "7573f14721ab"
       ],
       "recallDays": [
-        "2026-05-26"
+        "2026-05-26",
+        "2026-05-27"
       ],
       "conceptTags": [
         "gateway",
