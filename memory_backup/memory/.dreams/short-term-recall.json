@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-27T02:01:10.236Z",
+  "updatedAt": "2026-05-30T04:30:00.077Z",
   "entries": {
     "memory:memory/2026-05-16.md:1:29": {
       "key": "memory:memory/2026-05-16.md:1:29",
@@ -663,6 +663,41 @@
         "13.28",
         "收14.25元",
         "openclaw/mia-memory.duckdb"
+      ]
+    },
+    "memory:memory/2026-05-28.md:1:26": {
+      "key": "memory:memory/2026-05-28.md:1:26",
+      "path": "memory/2026-05-28.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "26年5月28日(周四): - DeepSeek API 余额 ¥31.09（14:00），晓东中间充了约¥19。今日预估总消耗 ¥0.17。 ## ✈️ OpenClaw 升级 - 小五（上海腾讯云）: 2026.5.18 → 2026.5.26（npm sudo update） - Mac 本地: 2026.5.18 → 2026.5.26（npm update -g） ## 🔧 排行榜超时修复 - 盘中排行榜（11:00）60s超时，实际60.2s，超了0.24秒 - 新闻早报（6:00）120s超时，实际120.1s，超了0.12秒 - 原因：升级后模型调用多了点开销，擦线被砍 - 修复：排行榜 60s→120s，新闻早报 120s→180s ## 🖥️ 毛毛（maomao）配置 - IP: 192.168.3.30（内网备机，Linux x64） - 用户名: maomao - OpenClaw 已装（2026.5.26） - 已完成配置：DeepSeek API key、默认模型 Flash、workspace 路径修复、gateway 启动 - 记忆状态：MEMORY.md 与 Mac 一致，但 daily 记忆停在 5/27 - 微信插件未装（备机不需要） ## 💬 其他 - 晓东问 IgG4 眼病治疗，讨论了 Rituximab 单抗 - 检查 L1 行情正常，Redis 6586 只股票实时更新 - snapshot_sender SSH 间歇性超时（首尔写库导致），非故障",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-29T10:38:18.614Z",
+      "lastRecalledAt": "2026-05-30T04:30:00.077Z",
+      "queryHashes": [
+        "86d1a5158bec",
+        "ca1651d85689",
+        "7191af9b0a50",
+        "1959674455f3"
+      ],
+      "recallDays": [
+        "2026-05-29",
+        "2026-05-30"
+      ],
+      "conceptTags": [
+        "gateway",
+        "31.09",
+        "0.17",
+        "2026.5.18",
+        "2026.5.26",
+        "实际60.2s",
+        "超了0.24秒",
+        "实际120.1s"
       ]
     }
   }
