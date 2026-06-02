@@ -203,15 +203,12 @@ python3.13 -u run_historical_collection.py
 
 ## 🏗️ 数据架构（2026-05-20 重构）
 
-### 核心决策：首尔为唯一数据中心
-- **首尔 (43.155.197.236)**: 唯一的 Tushare 日线数据采集节点，运行 Docker `seoul-data`
-- **Mac**: 不再独立采集，通过 cron 每日从首尔 SCP 同步 `stock_data.duckdb`
-- **上海小五**: 同理从首尔同步
-- **原因**: 之前三台机器各自拉全量日线，815MB/7M行 完全重复，浪费带宽和 API 额度
-
-### 同步脚本
-- Mac: `~/go/sync_from_seoul.sh`，OpenClaw cron 工作日 PDT 03:00 自动触发
-- 上海: `/root/sync_from_seoul.sh`，手动或 cron
+### 核心决策：Mac为主采集节点，推送到首尔+小五
+- **Mac**: 唯一的 Tushare 日线采集节点，运行 `collect_and_push.py`（cron 16:15）
+- **首尔 (43.155.197.236)**: 数据接收节点，运行 Docker `seoul-data`（L1实时行情+快照API）
+- **上海小五**: 数据接收节点，stockboard看板
+- **原因**: Mac直连Tushare更快，采集完增量推送到其他节点
+- **采集流程**: `collect_and_push.py` → 1)采集Mac本地 2)增量推首尔 3)增量推小五 4)全量推小表
 
 ### L1 实时行情独立
 - Mac 本地 Docker 的 Redis receiver + writer 不受影响，继续接收全推行情
@@ -232,6 +229,8 @@ python3.13 -u run_historical_collection.py
 | 首尔 | 43.155.197.236 | Ubuntu | 数据中心, Docker |
 | 上海小五 | (腾讯云巡检机) | - | 被调度节点 |
 | 红牛 | 111.229.0.148 | OpenCloudOS 9.4 | Hermes实例 |
+| **金都** | **111.228.36.114** | **Ubuntu 24.04** | **京东云轻量云（杭州），密码 Duo710710~** |
+| **Soul** | **43.155.197.236** | **Ubuntu 24.04** | **旧首尔，已升级OpenClaw 2026.5.28，gateway:18789** |
 | NAS | 192.168.3.40 | UGREEN-1460 | 绿联NAS，SMB共享 |
 
 ### NAS（2026-05-24）
@@ -359,6 +358,36 @@ python3.13 -u run_historical_collection.py
 - 当无话可说时，回复 ONLY: `NO_REPLY`
 - ⚠️ 必须是整条消息，不能和其他内容混在一起
 - 不能包裹在 markdown 或代码块中
+
+## 🦞 SwarmClaw — Agent 群总控台（2026-06-02）
+
+### 简介
+- **SwarmClaw**: 自托管、开源(MIT)、Agent 集群管理工具
+- Web UI: `localhost:3456`（Mac 上）
+- 已安装: `npm i -g @swarmclawai/swarmclaw`，进程活着但构建卡住
+
+### 功能
+- Web UI 仪表盘 + 组织架构图（谁调谁一目了然）
+- 任务委派 — agent 间互相派活
+- Kanban 看板 — 任务队列/进度
+- 定时任务 — agent 调度
+- 跨 agent 持久记忆
+- 监控 — 心跳、日志
+
+### 节点接入
+| 节点 | 能接入吗 | 说明 |
+|------|---------|------|
+| 🏠 Mac（米娅） | ✅ | OpenClaw 原生支持 |
+| 🥤 Soul | ✅ | OpenClaw |
+| 🥤 红牛 | ✅ | Hermes Agent（支持列表里有） |
+| 🐱 毛毛 | ✅ | OpenClaw |
+| 🏰 金都 | ✅ | 装 OpenClaw 就行 |
+
+### 待修
+- ❌ `localhost:3456` 报 500，需重新构建
+- 解决: `pkill -f "next build"` → `swarmclaw server --build`
+
+---
 
 ## ✅ 数据采集脚本已修复（2026-05-30）
 - `stock_data_collector.py` 中的 `ts.pro_bar()` 已替换为 `pro.daily()`（股票）和 `pro.index_daily()`（指数）
