@@ -1,9 +1,10 @@
 {
-  "updated": "2026-06-02T14:00:00+08:00",
-  "balance_cny": 17.08,
+  "updated": "2026-06-03T14:00:00+08:00",
+  "balance_cny": 29.82,
   "history": [
     {"date": "2026-05-28", "balance_cny": 31.09, "note": "from short-term-recall dream"},
     {"date": "2026-06-02T10:00", "balance_cny": 17.92, "note": "intraday check"},
-    {"date": "2026-06-02T14:00", "balance_cny": 17.08, "note": "intraday check"}
+    {"date": "2026-06-02T14:00", "balance_cny": 17.08, "note": "intraday check"},
+    {"date": "2026-06-03T14:00", "balance_cny": 29.82, "note": "intraday check - topped up ~¥12.74 since yesterday"}
   ]
 }
