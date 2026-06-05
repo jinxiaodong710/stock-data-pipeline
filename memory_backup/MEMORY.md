@@ -108,6 +108,30 @@
 - 日常聊天/改配置/调任务全用 deepseek/deepseek-v4-pro
 - **铁律：Mac 微信会话永远不换模型，只用 DeepSeek Pro**
 
+### 6月5日 Cron 模型加固
+- **所有 cron 任务必须显式指定 model: deepseek/deepseek-v4-pro**
+- 不指定的话系统可能随机分配 grok（6/5 排行榜10:00跑空根因）
+- 5个cron任务已全部加固：排行榜/stock-scorer/记忆备份/Mac同步/新闻早报
+
+### 6月5日 Gateway 崩溃分析
+- 6/4 16:23-16:39 北京，OpenClaw gateway 连续崩5次（16分钟内）
+- 根因：Docker VM 分配 8GB 内存，系统内存不足导致 gateway 被 kill
+- launchd KeepAlive=true 自动重启，但 session 丢失（slaw群聊+股票讨论）
+- 解决方案：Docker 内存降到 2GB（需晓东在 Docker Desktop 手动改）
+
+### 6月5日 Redis 迁移到 Docker
+- Redis 从 Homebrew 裸跑 → Docker 容器（redis:latest）
+- 端口同时绑定 127.0.0.1:6379 和 192.168.3.39:6379
+- 数据卷: ~/go/docker/redis-data，RDB 8066 keys 完整迁移
+- 策略: --restart always，挂了自动恢复
+- 容器内存: ~14MB
+
+### 6月5日 系统优化
+- Mac IP 固定为 192.168.3.39（手动设置，不再 DHCP 漂移）
+- WPS Office 待删（需在 Finder 拖废纸篓，要管理员密码）
+- iMovie(3.7G)/GarageBand(1.1G) 可考虑清理
+- 旧 Docker 镜像已清理: go-receiver/go-writer/redis:7-alpine，省 783MB
+
 ---
 
 ## 🧠 Hermes 三层记忆（2026-05-19 升级）
