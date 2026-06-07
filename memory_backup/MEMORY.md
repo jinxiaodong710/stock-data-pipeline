@@ -465,3 +465,14 @@ python3.13 -u run_historical_collection.py
 - ✅ 用 `stock_data_collector.py` 的专用接口或完整流程
 - ✅ 补数据前先查现有数据的代码和日期格式
 
+## 🏛️ MemPalace 记忆分工（2026-06-07 启用）
+
+| 组件 | 角色 |
+|------|------|
+| MEMORY.md | 🏛️ 宪法——规则/铁律/偏好，session 启动必读 |
+| MemPalace | 🔍 搜索引擎——查事实/历史/服务器信息优先用 mempalace 语义搜索 |
+| memory/*.md | 📝 原始日志——MemPalace 自动 mine |
+| DuckDB | 🗄️ 结构化查询 |
+
+**铁律**：问事实时先查 MemPalace，MEMORY.md 只存核心规则不存琐碎数据。
+
