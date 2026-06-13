@@ -1,0 +1,704 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-30T04:30:00.077Z",
+  "entries": {
+    "memory:memory/2026-05-16.md:1:29": {
+      "key": "memory:memory/2026-05-16.md:1:29",
+      "path": "memory/2026-05-16.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# 2026-05-16 周六 ## 时间线 (北京时间) - 傍晚 6 点: 晓东说\"6点了\" → 米娅搞错 AM/PM - 晓东让\"记住写下来\" → 已更新 MEMORY.md 加粗提醒 - 聊分级诊疗/社区医院/上海高考 - 装 ddgr → DuckDuckGo 被墙不能用 - 装 Clash Verge Rev（走 ghproxy 镜像 + DMG 手动安装） - 代理端口 7897，连通 Google/YouTube/GitHub/X - 写搜索脚本 `~/.local/bin/s` → DDG Lite POST 方式搜成功 - 验证：2026 上海高考 6 月 23 日出分 - 小说开头：《地基之下》 ## 工具箱更新 已写入 TOOLS.md： - 搜索方案：Clash 代理 + s 命令 - Python 环境：3.13 可用，3.14 不能用 - GitHub 加速：ghproxy.net ## 教训 - ⚠️ 宿主机在美西(PDT)，晓东在北京(CST, UTC+8)，永远先算北京时间 - web_search 不可靠 → 用 exec + s 命令代替 - DuckDuckGo Lite 用 POST 不是 GET - macOS 版 Clash Verge Rev 监听 mixed-port 7897 - brew cask 下载 GitHub 文件太慢 → ghproxy + DMG 手动装更快",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-18T12:20:38.825Z",
+      "lastRecalledAt": "2026-05-19T04:57:28.604Z",
+      "queryHashes": [
+        "720b45dfe614",
+        "93f3c3bbc5cf"
+      ],
+      "recallDays": [
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "am/pm",
+        "memory.md",
+        "聊分级诊疗/社区医院/上海高考",
+        "google/youtube/github/x",
+        "local/bin/s",
+        "tools.md",
+        "3.13",
+        "3.14"
+      ]
+    },
+    "memory:memory/2026-05-18.md:41:67": {
+      "key": "memory:memory/2026-05-18.md:41:67",
+      "path": "memory/2026-05-18.md",
+      "startLine": 41,
+      "endLine": 67,
+      "source": "memory",
+      "snippet": "- 快照约 1.5MB/次，月耗 ~13GB，首尔 1536GB 包用不完 ## 数据采集 - Mac 定时采集: launchd 北京时间 16:15 - 首尔定时采集: cron 首尔 18:00 = 北京 17:00 - 双机互备 ## Windows 代理 - 晓东工作机 Win11 已装 Clash Verge - 订阅类型错了——用的是「本地」不是「描述」 - 正确流程: 订阅→新建→类型选「本地」→内容贴到大框 ## 晓东选的5只票回测（修复前视偏差后） - 301596(新股) / 300088(长信) / 601336(新华保险) / 601890(亚星锚链) / 300127(银河磁体) - 等分资金(各2万)总仓位仅20% - 共享资金池总仓位60% - 但前视偏差修复后策略失效 ## GitHub 发现 - AI-Trader (HKUDS, 18000⭐): Agent-Native 交易平台 - CloakBrowser (CloakHQ, 14000⭐): 隐形浏览器，过反爬检测 ## 晓东习惯 - 中英文对照是给小五的指令，不是给米娅的 - 对数字敏感，多次发现回测异常 - 倾向于先验证再相信",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3.9795064187088003,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-18T12:20:38.825Z",
+      "lastRecalledAt": "2026-05-20T04:35:46.360Z",
+      "queryHashes": [
+        "720b45dfe614",
+        "5ca77b1f8a32",
+        "8cc20ae7172f",
+        "75c90266a10b"
+      ],
+      "recallDays": [
+        "2026-05-18",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "1.5mb/次",
+        "ai-trader",
+        "agent-native",
+        "快照",
+        "1.5mb",
+        "13gb",
+        "1536gb",
+        "用不完"
+      ]
+    },
+    "memory:memory/2026-05-18.md:1:28": {
+      "key": "memory:memory/2026-05-18.md:1:28",
+      "path": "memory/2026-05-18.md",
+      "startLine": 1,
+      "endLine": 28,
+      "source": "memory",
+      "snippet": "# 2026-05-17 (PDT) / 2026-05-18 (CST) 周一 ## 首尔服务器部署 - 购买腾讯云轻量（首尔）：2核4G 60G SSD 30Mbps 1536GB/月，199元/年，**续费同价** - IP: 43.155.197.236 - 系统: Ubuntu 24.04 LTS - SSH 密钥已配，免密登录 - 装了 Shadowsocks-libev（端口 8388, chacha20-ietf-poly1305） - 密码: kImiAHzHcSbNoryHzdkJGQ== - 腾讯云防火墙已开 TCP/UDP 8388 - Clash Verge (Mac + Windows) 均已切换到「首尔-30M」节点 - 智能规则: 国内直连，国外走首尔 - 首尔时区改为 Asia/Seoul (UTC+9)，cron 用首尔时间 - 首尔 cron: UTC 9:00 = 首尔 18:00 = 北京 17:00 触发日线采集 ## 国内腾讯云 (111.229.134.97) - 重装为 Ubuntu 24.04，Tushare日线全量回采已跑完（~812MB DB） - 定时采集 cron 已取消（3M 带宽太鸡肋） - 装了 OpenClaw 2026.5.12，作为「小五」agent - 小五: DeepSeek V4 Flash，独立 Gateway 在 127.0.0.1:18789 - 晓东通过米娅中转调度小五 ## AlphaGPT 策略研究 — 重大发现 - 项目: https://github.com/LilianaMaj",
+      "recallCount": 12,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 11.927594212777166,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-18T12:20:38.825Z",
+      "lastRecalledAt": "2026-05-21T12:18:12.075Z",
+      "queryHashes": [
+        "720b45dfe614",
+        "93f3c3bbc5cf",
+        "b20d8f430aaf",
+        "089e7c21c55b",
+        "c31f2dcdfdd2",
+        "8cc20ae7172f",
+        "542c84e89f32",
+        "75c90266a10b",
+        "49a68aa80211",
+        "36bb020a28a2",
+        "cf9f5c832c74",
+        "3a4f5b0ed238"
+      ],
+      "recallDays": [
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21"
+      ],
+      "conceptTags": [
+        "gateway",
+        "gpt",
+        "1536gb/月",
+        "199元/年",
+        "43.155.197.236",
+        "24.04",
+        "shadowsocks-libev",
+        "chacha20-ietf-poly1305"
+      ]
+    },
+    "memory:memory/2026-05-18.md:25:50": {
+      "key": "memory:memory/2026-05-18.md:25:50",
+      "path": "memory/2026-05-18.md",
+      "startLine": 25,
+      "endLine": 50,
+      "source": "memory",
+      "snippet": "- 代码在 ~/go/AlphaGPT_Tushare/ - 跑通了三段式回测（训练→验证→测试） - **发现前视偏差**: 特征工程的 88 个 _norm 指标在滚动标准化时没有 shift(1) - ret_norm 等包含了当天涨跌信息 → 看似\"预测\"实际是\"看了答案\" - 修复后策略在普通票上失效，年化从 100-400% 降到负数或微正 - 千3.5 交易成本吃掉了微弱超额 - 平潭发展是唯一有正超额的票（妖股+47%） - 比亚迪暴跌票上策略做了止损（少亏14%） - 固定因子: ret_norm + mom5_norm 在22/32只票上被AI选中 - 代码已打包: ~/Desktop/AlphaGPT_Tushare.tar.gz (1.3MB) ## 行情系统 - Mac Redis (192.168.3.47:6379) L1 全推广播正常 - Receiver + Writer 盘前 9:10 自动启动(lanchd)，收盘 15:05 自动停止 - 时区 Bug 修复: writer 里 `date.today()` 改为 CST_TZ，DB 文件名修正为 2026-05-18 - 首尔快照同步: 每60秒从 Mac Redis → 首尔 DuckDB，收市自动停 - 快照约 1.5MB/次，月耗 ~13GB，首尔 1536GB 包用不完 ## 数据采集 - Mac 定时采集: launchd 北京时间 16:15 - 首尔定时采集: cron 首尔 18:00 = 北京 17:00 - 双机互备 ## Windows 代理 -",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4.3907321188647686,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T05:07:11.198Z",
+      "lastRecalledAt": "2026-05-20T04:35:46.360Z",
+      "queryHashes": [
+        "b20d8f430aaf",
+        "5ca77b1f8a32",
+        "c31f2dcdfdd2",
+        "542c84e89f32",
+        "75c90266a10b"
+      ],
+      "recallDays": [
+        "2026-05-18",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "gpt",
+        "go/alphagpt-tushare",
+        "ret-norm",
+        "100-400",
+        "千3.5",
+        "mom5-norm",
+        "在22/32只票上被ai选中",
+        "desktop/alphagpt-tushare.tar.gz"
+      ]
+    },
+    "memory:memory/2026-05-19.md:1:33": {
+      "key": "memory:memory/2026-05-19.md:1:33",
+      "path": "memory/2026-05-19.md",
+      "startLine": 1,
+      "endLine": 33,
+      "source": "memory",
+      "snippet": "# 2026-05-19 (周一) 记录 ## Docker 上线 🐳 - Docker Desktop 装好了，在 /Applications - ~/go/ 下: Dockerfile + docker-compose.yml - `docker compose up -d` 启动 receiver + writer + redis - 用阿里云镜像加速 `registry.cn-hangzhou.aliyuncs.com` 拉图 - 进程守护: `restart: unless-stopped` ## 策略回测进展 - 修了两次前视偏差 bug: ① MA用当天收盘价 (shift fix) ② 止盈用未来价 (fut_ret fix) - 20票×50组合=1000次回测完成 - 结论: 纯技术指标策略=逆势工具，牛市择时反而踢飞 - 因子库: ~/go/factor_library.json (3个最佳因子 + 使用规则) - 下次: 先判趋势(MA20方向)→选因子→回测 ## 监控体系 - Mac: 每30分钟检查 Docker容器(receiver/writer/redis)+snapshot - 小五(上海): 每30分钟检查首尔SSH+快照延迟+自检 - 微信报警: 区分 \"Mac报警\" / \"小五报警\" ## Agent-Reach 采集包 - yt-captions: YouTube字幕提取 (youtube-transcript-api, 已实测可用) - agent-reach: 平台URL生成 (雪球/东财/微博/知乎/同花顺) - 配合",
+      "recallCount": 9,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 8.788207071438105,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T11:38:37.604Z",
+      "lastRecalledAt": "2026-05-20T11:29:34.447Z",
+      "queryHashes": [
+        "089e7c21c55b",
+        "5ca77b1f8a32",
+        "c31f2dcdfdd2",
+        "cab1684f7dc9",
+        "989cc8b99150",
+        "8cc20ae7172f",
+        "542c84e89f32",
+        "49a68aa80211",
+        "36bb020a28a2"
+      ],
+      "recallDays": [
+        "2026-05-19",
+        "2026-05-20"
+      ],
+      "conceptTags": [
+        "docker-compose.yml",
+        "unless-stopped",
+        "fut-ret",
+        "go/factor-library.json",
+        "receiver/writer/redis",
+        "agent-reach",
+        "yt-captions",
+        "youtube-transcript-api"
+      ]
+    },
+    "memory:memory/2026-05-19.md:25:46": {
+      "key": "memory:memory/2026-05-19.md:25:46",
+      "path": "memory/2026-05-19.md",
+      "startLine": 25,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "- 配合 web_fetch 提取正文，配合 browser 处理JS页面 ## 首尔跳板方案 - 大文件下载: 首尔直连(12-44MB/s) → SCP传Mac(不走SS代理) - 记录在 TOOLS.md ## Clash Android - 最终配置: mode=global, 手动切首尔/DIRECT - 加密: chacha20-ietf-poly1305 (与大服务器一致) - CDN缓存: 用 commit hash URL 绕过 jsdelivr 缓存问题 ## 小五位置 - 小五在上海腾讯云 111.229.134.97 (不是首尔!) - 首尔专做代理+快照 ## Schyler API 中转站 - 晓东问了 https://api.schyler.top/ - 是个 AI API Gateway，可以一个Key调多个模型 - 支持模型: gpt-4o, gpt-5.1, gemini-3-pro, claude-opus-4-5, deepseek-v3.1等 - 按Token计费，不同模型倍率不同 - 个人站点，跑路风险存在",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T12:07:15.545Z",
+      "lastRecalledAt": "2026-05-19T12:08:22.501Z",
+      "queryHashes": [
+        "cab1684f7dc9",
+        "989cc8b99150"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "gateway",
+        "gpt",
+        "web-fetch",
+        "12-44mb/s",
+        "tools.md",
+        "手动切首尔/direct",
+        "chacha20-ietf-poly1305",
+        "111.229.134.97"
+      ]
+    },
+    "memory:memory/2026-05-19.md:56:87": {
+      "key": "memory:memory/2026-05-19.md:56:87",
+      "path": "memory/2026-05-19.md",
+      "startLine": 56,
+      "endLine": 87,
+      "source": "memory",
+      "snippet": "- L3 语义记忆: semantic_entities + semantic_relations 表（实体+关系网络） - 数据库: `~/.openclaw/mia_memory.duckdb` - 同步脚本: `~/go/sync_knowledge.py` → KNOWLEDGE.md (workspace 自动加载) - 小五同步部署，带身份证忆（高效/数字敏感/可靠/谦逊） - 身份信息注入: semantic_entities + relations（米娅性格/关系/成长轨迹） ## 小五飞书 Bot 上线 - 飞书开放平台 → 企业自建应用「小五」 - App ID: cli_aa86540948b8dcb3 - 通道: WebSocket 长连接 - 配对通过，晓东可在飞书联系小五 - 备注: 手机号 18101882501 可能不是晓东的 ## 首尔 Docker 化 - 首尔原服务打包进 seoul-data 容器 - Dockerfile: python:3.12-slim + duckdb + cron - 挂载: /home/ubuntu/go/data → /app/data, /host-tmp → /tmp - 快照同步: SCP传文件 → docker exec读文件（原stdin管道超时问题已修） - 日线采集: 容器内 cron 工作日 18:00 首尔 ## 小五巡检 v4 - 模型: gpt-5.5 (Schyler中转) - 休市判断: 只在交易时段检查快照延迟，盘后不报警 - 首尔检查: docker exec seoul-",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-20T04:35:46.360Z",
+      "lastRecalledAt": "2026-05-20T15:02:59.093Z",
+      "queryHashes": [
+        "75c90266a10b",
+        "49a68aa80211",
+        "36bb020a28a2",
+        "82886e70f4d3",
+        "524ae671e5f4"
+      ],
+      "recallDays": [
+        "2026-05-19",
+        "2026-05-20"
+      ],
+      "conceptTags": [
+        "gpt",
+        "网络",
+        "semantic-entities",
+        "semantic-relations",
+        "openclaw/mia-memory.duckdb",
+        "go/sync-knowledge.py",
+        "knowledge.md",
+        "高效/数字敏感/可靠/谦逊"
+      ]
+    },
+    "memory:memory/2026-05-19.md:25:59": {
+      "key": "memory:memory/2026-05-19.md:25:59",
+      "path": "memory/2026-05-19.md",
+      "startLine": 25,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "- 配合 web_fetch 提取正文，配合 browser 处理JS页面 ## 首尔跳板方案 - 大文件下载: 首尔直连(12-44MB/s) → SCP传Mac(不走SS代理) - 记录在 TOOLS.md ## Clash Android - 最终配置: mode=global, 手动切首尔/DIRECT - 加密: chacha20-ietf-poly1305 (与大服务器一致) - CDN缓存: 用 commit hash URL 绕过 jsdelivr 缓存问题 ## 小五位置 - 小五在上海腾讯云 111.229.134.97 (不是首尔!) - 首尔专做代理+快照 ## Schyler API 中转站 - 晓东问了 https://api.schyler.top/ - 是个 AI API Gateway，可以一个Key调多个模型 - 支持模型: gpt-4o, gpt-5.1, gemini-3-pro, claude-opus-4-5, deepseek-v3.1等 - 按Token计费，不同模型倍率不同 - 个人站点，跑路风险存在 ## OpenClaw 升级 (2026.5.18) - Mac: 2026.5.7 → 2026.5.18 ✅ - 小五: 2026.5.12 → 2026.5.18 ✅ (需 sudo) - 新特性: 微信插件 2.4.3、子代理模型配置、长会话内存优化 ## Hermes 三层记忆系统部署 - L1 工作记忆: working_context 表 - L2 情节记忆: episodic_sessions 表（每",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-20T05:08:25.079Z",
+      "lastRecalledAt": "2026-05-21T07:18:50.620Z",
+      "queryHashes": [
+        "49a68aa80211",
+        "36bb020a28a2",
+        "cf9f5c832c74"
+      ],
+      "recallDays": [
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21"
+      ],
+      "conceptTags": [
+        "gateway",
+        "gpt",
+        "web-fetch",
+        "12-44mb/s",
+        "tools.md",
+        "手动切首尔/direct",
+        "chacha20-ietf-poly1305",
+        "111.229.134.97"
+      ]
+    },
+    "memory:memory/2026-05-19.md:79:100": {
+      "key": "memory:memory/2026-05-19.md:79:100",
+      "path": "memory/2026-05-19.md",
+      "startLine": 79,
+      "endLine": 100,
+      "source": "memory",
+      "snippet": "- 首尔检查: docker exec seoul-data python3 /app/seoul_check.py ## 每日对话总结 - 脚本: ~/go/daily_summary.py (GPT-5.5 总结) - Cron: 每晚 22:00 CST 推送到微信 - 归档规则: 所有对话自动存入 DuckDB conversations 表 ## 三体音频 - 改用 Edge TTS (微软云健)，断句自然 - 当前进度: 41/85 章 - 进程曾多次中断，需手动重跑 ## 晓东强调 - 时间永远按北京时间 (CST UTC+8)，不能按 Mac PDT - 重要信息必须当场存入记忆库，不等问 - \"怎么\"（Zen Me）是核心语调 ## Schyler API - Base URL: https://api.schyler.top/v1 - 当前余额: $21.87 - 模型: gpt-5.5 (巡检), gpt-5.4-mini (前用)",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.632986608690936,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-20T15:00:10.722Z",
+      "lastRecalledAt": "2026-05-21T07:18:50.620Z",
+      "queryHashes": [
+        "82886e70f4d3",
+        "524ae671e5f4",
+        "cf9f5c832c74"
+      ],
+      "recallDays": [
+        "2026-05-20",
+        "2026-05-21"
+      ],
+      "conceptTags": [
+        "gpt",
+        "seoul-data",
+        "app/seoul-check.py",
+        "go/daily-summary.py",
+        "gpt-5.5",
+        "41/85",
+        "api.schyler.top/v1",
+        "21.87"
+      ]
+    },
+    "memory:memory/2026-05-20.md:16:28": {
+      "key": "memory:memory/2026-05-20.md:16:28",
+      "path": "memory/2026-05-20.md",
+      "startLine": 16,
+      "endLine": 28,
+      "source": "memory",
+      "snippet": "- **盘中实时排行榜**: 之前 HEARTBEAT.md 写了但从未配 cron，新增「盘中实时排行榜」cron：北京 9:00-15:00 每30分钟，从 Redis L1 数据读涨停/大涨/跌幅/高换手 - **每日对话总结**: 设了一次性 at cron，但 isolated agent 写入失败，手动补了本条 ## 行情数据 - **5/20 板块排名**: 半导体全线领涨（集成电路+6.78%，半导体设备+6.18%），电力板块暴跌（火电-5.81%） - **5/21 盘中**: 上证 4194 (+0.78%)，显示技术爆发（屏下摄像+5.45%，玻璃基板+5.43%），券商+3.36% 也起来了 - web_search 全天超时（Brave API），手动用新浪/首尔Tushare兜底 ## 遗留 - 首尔缺少 stock_basic_info / ths_concept_members 表（轻量） - 采集脚本全量 DELETE+INSERT 每次 47 分钟，可优化为增量 - macOS crontab 在 sandbox 环境挂住，统一用 OpenClaw cron",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4.929686770167407,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-21T07:18:50.620Z",
+      "lastRecalledAt": "2026-05-22T11:00:13.352Z",
+      "queryHashes": [
+        "cf9f5c832c74",
+        "ff84ac18c9cf",
+        "c779b0814160",
+        "e43650e7725b",
+        "6596d73707bc",
+        "848c55329386"
+      ],
+      "recallDays": [
+        "2026-05-21",
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "heartbeat.md",
+        "00-15",
+        "数据读涨停/大涨/跌幅/高换手",
+        "5/20",
+        "6.78",
+        "6.18",
+        "火电-5.81",
+        "5/21"
+      ]
+    },
+    "memory:memory/2026-05-20.md:1:20": {
+      "key": "memory:memory/2026-05-20.md:1:20",
+      "path": "memory/2026-05-20.md",
+      "startLine": 1,
+      "endLine": 20,
+      "source": "memory",
+      "snippet": "# 2026-05-20 (周二) 记录 ## 数据架构优化（重大调整） - **问题**: 首尔、Mac 各自独立拉 Tushare 日线数据，两台 stock_data.duckdb 完全重复（各 815MB/7M行） - **方案**: 首尔为唯一数据中心，Mac/上海从首尔 SCP 同步 ### 执行细节 1. **首尔 END_DATE 修复**: 从写死 `'2026-05-15'` 改为动态 `datetime.date.today()` 2. **首尔 Docker**: seoul-data 容器 exit 137 OOM，已重启 3. **Mac 同步**: 新建 `~/go/sync_from_seoul.sh`，OpenClaw cron 工作日 PDT 03:00 自动 SCP 4. **上海小五**: 配了 SSH config + sync 脚本，SCP 测试成功但数据当时过期被跳过 5. **L1 实时行情**: Mac Docker 不变，独立系统不冲突 ## 定时任务修复/新增 - **新闻早报**: cron 报错原因是 `--account` 填成了小五飞书 bot ID (e99c509c715b)，修正为默认微信账号 ✅ - **盘中实时排行榜**: 之前 HEARTBEAT.md 写了但从未配 cron，新增「盘中实时排行榜」cron：北京 9:00-15:00 每30分钟，从 Redis L1 数据读涨停/大涨/跌幅/高换手 - **每日对话总结**: 设了一次性 at cron，但 isolated agent 写入失败，",
+      "recallCount": 7,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.158933976178853,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-21T12:18:12.075Z",
+      "lastRecalledAt": "2026-05-22T18:00:07.875Z",
+      "queryHashes": [
+        "3a4f5b0ed238",
+        "ff84ac18c9cf",
+        "652beadafb04",
+        "48e875e65a17",
+        "848c55329386",
+        "8e41d6fa61cc",
+        "017d0c9cf340"
+      ],
+      "recallDays": [
+        "2026-05-21",
+        "2026-05-22",
+        "2026-05-23"
+      ],
+      "conceptTags": [
+        "stock-data.duckdb",
+        "815mb/7m行",
+        "mac/上海从首尔",
+        "end-date",
+        "datetime.date.today",
+        "seoul-data",
+        "go/sync-from-seoul.sh",
+        "定时任务修复/新增"
+      ]
+    },
+    "memory:memory/2026-05-22.md:23:36": {
+      "key": "memory:memory/2026-05-22.md:23:36",
+      "path": "memory/2026-05-22.md",
+      "startLine": 23,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "- 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错定价（当成美元）而偏大，实际是人民币 ## 新闻早报 - Brave web_search 超时，改用本地 s 命令 + 新浪财经直抓 - cron 超时从 30s → 300s ## 对话总结 - 拆成中午 12:00 + 午夜 0:00 两次 - HEARTBEAT 对话保存改为全天制",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6350013527363814,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-22T06:01:38.165Z",
+      "lastRecalledAt": "2026-05-22T11:00:13.352Z",
+      "queryHashes": [
+        "6596d73707bc",
+        "848c55329386"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "5/21",
+        "7.57",
+        "web-search",
+        "小五",
+        "通过",
+        "deepseek",
+        "用量",
+        "存命"
+      ]
+    },
+    "memory:memory/2026-05-22.md:1:30": {
+      "key": "memory:memory/2026-05-22.md:1:30",
+      "path": "memory/2026-05-22.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# 2026-05-22 (周五) 记录 ## 记忆整理 - 晓东问\"记忆总结了吗\"，触发系统性记忆维护 - 从 5/20-5/21 daily 提炼关键信息更新到 MEMORY.md： - 数据架构重构（首尔唯一数据中心） - 服务器清单（含新服务器 111.229.0.148） - 定时任务清单 - Silent Replies 规则 - 旧「定时任务」section 改名为「OpenClaw Cron 使用技巧」，避免重复 ## 板块涨幅修复（重大） - 🐛 问题：盘中排行榜板块涨幅用 Tushare 日线 `ths_daily`，盘中没当天数据 fallback 到旧日 - 🐛 同花顺小众概念板块（如公路与铁路）成分股少，单日涨幅失真（+12.41%） - 🐛 我误判 5/22 为周六，晓东纠正——今天是周五交易日 - ✅ 修复：改 L1 实时行情 + 行业/概念分类中位数聚合 - 新脚本：`~/go/sector_cache_live.py`，缓存 `/tmp/sector_cache.txt` - `~/go/cache_sectors.sh` 已更新，不再 SSH 首尔 ## Mac → 小五 增量同步 - `~/go/mac_to_xiaowu_sync.py` 完成并实测通过 - parquet 增量导出 + SCP + DELETE/INSERT upsert - 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3.6317866666360996,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-22T06:01:38.165Z",
+      "lastRecalledAt": "2026-05-25T13:03:37.831Z",
+      "queryHashes": [
+        "6596d73707bc",
+        "848c55329386",
+        "206335418125",
+        "57dd5aff291c"
+      ],
+      "recallDays": [
+        "2026-05-22",
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "5/20-5/21",
+        "memory.md",
+        "111.229.0.148",
+        "ths-daily",
+        "12.41",
+        "5/22",
+        "行业/概念分类中位数聚合",
+        "go/sector-cache-live.py"
+      ]
+    },
+    "memory:memory/2026-05-22.md:23:44": {
+      "key": "memory:memory/2026-05-22.md:23:44",
+      "path": "memory/2026-05-22.md",
+      "startLine": 23,
+      "endLine": 44,
+      "source": "memory",
+      "snippet": "- 小五 6 张表已补全，校验通过 ## DeepSeek 用量 - 5/21: 79次调用，¥7.57（缓存命中 3800 万 tokens） - 之前的费用估算因用错定价（当成美元）而偏大，实际是人民币 ## 新闻早报 - Brave web_search 超时，改用本地 s 命令 + 新浪财经直抓 - cron 超时从 30s → 300s ## 对话总结 - 拆成中午 12:00 + 午夜 0:00 两次 - HEARTBEAT 对话保存改为全天制 ## 夜间对话存档 (02:00 5/23) - 检查 20:02~02:00 期间：无新对话产生 - 补录 3 条遗漏（mia_memory→workspace conversations）： - #14 首尔快照API上线 (早5点决策) - #15 上海高考志愿Excel完成 (下午完成) - #16 增量同步最终架构拍板 (凌晨决策) - workspace conversations.duckdb 总计 16 条记录",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.63307806957608,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-24T22:12:55.263Z",
+      "lastRecalledAt": "2026-05-25T13:03:37.831Z",
+      "queryHashes": [
+        "56b68e95738b",
+        "6ddc269fe453",
+        "52ad689ed521",
+        "206335418125",
+        "b8851458b46d",
+        "57dd5aff291c"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "5/21",
+        "7.57",
+        "web-search",
+        "5/23",
+        "mia-memory",
+        "conversations.duckdb",
+        "小五",
+        "通过"
+      ]
+    },
+    "memory:memory/2026-05-23.md:1:32": {
+      "key": "memory:memory/2026-05-23.md:1:32",
+      "path": "memory/2026-05-23.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# 2026-05-23 周六 ## 🚨 晓东指令：周末休市不发排行榜 晓东明确说「周末不要发，现在休市」，已记入 MEMORY.md 铁律： - **周末一律不发送任何股市排行榜/行情推送** - 盘中实时排行榜严格限制在交易日 9:30-15:00 - 非交易日 cron 触发 → 静默跳过，不发消息 ## 🧠 上下文机制学习 晓东详细讲解了上下文怎么传给模型，纠正了我之前的错误理解。 **关键认知纠正：** 不是「所有历史对话全文无脑打包」传给模型，而是「按需重组拼装」。 ### 分层结构 | 层级 | 策略 | |------|------| | 系统提示 | ✅ 最稳定，几乎必带 | | 当前会话消息 | ✅ 相关消息带上，太长则压缩 | | 工具调用结果 | ⚠️ 太长截断，只保留关键部分 | | 持久记忆 | ✅ 提炼后的长期事实，不是全文 | | 技能（skill） | 🔸 按需加载，不是全部默认塞 | | 历史会话 | 🔸 档案库，按需检索，不默认全带 | ### 什么时候会丢内容？ - 上下文太长 → 系统自动压缩成摘要（HEARTBEAT里的手动截断不需要了） - 工具输出太长 → 截断/分页/摘要 - 话题切换多轮 → 旧话题弱化 ### HEARTBEAT.md 旧备注已确认可删除",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.6328997220782286,
+      "maxScore": 0.6328997220782286,
+      "firstRecalledAt": "2026-05-24T22:12:55.263Z",
+      "lastRecalledAt": "2026-05-24T22:12:55.263Z",
+      "queryHashes": [
+        "56b68e95738b"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "memory.md",
+        "周末一律不发送任何股市排行榜/行情推送",
+        "30-15",
+        "截断/分页/摘要",
+        "heartbeat.md",
+        "周六",
+        "指令",
+        "周末"
+      ]
+    },
+    "memory:memory/2026-05-23.md:47:77": {
+      "key": "memory:memory/2026-05-23.md:47:77",
+      "path": "memory/2026-05-23.md",
+      "startLine": 47,
+      "endLine": 77,
+      "source": "memory",
+      "snippet": "| 对话总结-午夜 | 每天 0点，推微信(任务内嵌message send) | 仅工作日，删掉message send，不推微信 | | 每日新闻早报 | 每天 6点，推微信 | 仅工作日，推微信 | | 盘中实时排行榜 | 工作日 9-15每30分钟 | 工作日 10-15每小时 | ## 🔍 真正元凶：launchd push_monitor（13:19发现） **问题：** 改完 cron 后，13:19 还是收到股票推送。排查发现真正的始作俑者不在 cron，而是 **launchd 系统级定时任务**，绕过 OpenClaw 直接推微信。 ### com.stock.push-monitor - 脚本：`~/go/push_monitor.sh`（SSH首尔拉 `/tmp/market_monitor.txt`） - 间隔：原来900秒(15分钟)→ 改为3600秒(1小时) - 修复：加工作日判断 `WDAY=$(TZ=\"Asia/Shanghai\" date +%u); [ \"$WDAY\" -gt 5 ] && exit 0` - 时间判断：10:00-11:30, 13:00-15:05，但没有工作日判断 ### com.stock.snapshot - 脚本：`~/go/snapshot_loop.sh`（30秒快照循环） + `snapshot_sender.py` - 修复：周末检测放入 while 循环内，sleep 3600 再 continue ### 修复命令 ```bash launchctl unload ~/Library/L",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-24T22:35:57.775Z",
+      "lastRecalledAt": "2026-05-24T22:36:00.063Z",
+      "queryHashes": [
+        "31a2e53e3bf2",
+        "3c915284982d"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "对话总结-午夜",
+        "9-15每30分钟",
+        "10-15每小时",
+        "push-monitor",
+        "com.stock.push-monitor",
+        "go/push-monitor.sh",
+        "tmp/market-monitor.txt",
+        "asia/shanghai"
+      ]
+    },
+    "memory:memory/2026-05-24.md:1:33": {
+      "key": "memory:memory/2026-05-24.md:1:33",
+      "path": "memory/2026-05-24.md",
+      "startLine": 1,
+      "endLine": 33,
+      "source": "memory",
+      "snippet": "# 2026-05-24 (周日) ## 💡 晓东说：涉及记忆的事都最重要 自己建了的备份体系不记得，说明 MEMORY.md 该记的没记。铁律：**做过的设置、写过的文件、搭过的系统，只要和我有关的，都得写进 MEMORY.md，不能只存在文件里。** ## 🧠 今日重要记录 ### 1. 内部数据流架构确认 - 用户 → 米娅(OpenClaw/Mac) → 小五(OpenClaw/上海) → 首尔（数据中心） - 红牛(Hermes/上海) 单独跑飞书bot，不走数据流 ### 2. NAS连接信息确认 - 192.168.3.40（UGREEN-1460），用户bigboy，密码Duo710710 - SMB共享已挂载使用 - 已有自动备份体系（米娅备份/目录） ### 3. 内网笔记本 - 192.168.3.35，用户xiaodong，PIN码0099 - 端口全关（SSH/RDP/SMB都关着），暂时无法远程 ### 4. 首尔快照API修复 - snapshot_api.py（端口8081）进程运行4天后卡死 - 重启后恢复，加了每30分钟健康检查cron - API端点: /health, /api/snapshot, /api/ranking, /api/batch ### 5. Mac数据同步问题 - 根因：同步cron在5/23重组时被误删 - 同步脚本(sync_from_seoul.sh) 5/21起SCP一直大小校验失败 - DB文件损坏（1.1G但只有92行） - 修复：加回cron（1cbd68ac），补了3~5月数据（29万",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-25T00:59:12.615Z",
+      "lastRecalledAt": "2026-05-25T13:03:37.831Z",
+      "queryHashes": [
+        "3fe9926e4143",
+        "57dd5aff291c"
+      ],
+      "recallDays": [
+        "2026-05-25"
+      ],
+      "conceptTags": [
+        "备份",
+        "memory.md",
+        "openclaw/mac",
+        "openclaw/上海",
+        "hermes/上海",
+        "192.168.3.40",
+        "ugreen-1460",
+        "米娅备份/目录"
+      ]
+    },
+    "memory:memory/2026-05-24.md:48:59": {
+      "key": "memory:memory/2026-05-24.md:48:59",
+      "path": "memory/2026-05-24.md",
+      "startLine": 48,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "3. 查 agent.log 发现 title_generator 收到 HTML：`'<!doctype html>\\n<html lang=\"zh-CN\">'` 4. 直接 curl 测试 Schyler API：非流式 ✅ / 流式 ✅ / 长上下文 ✅ — API 本身好着 5. 问题根因： - **主因**：Schyler 中转间歇性返回空内容（00:47、01:27、05:44 都出现），不是红牛本身问题 - **次要**：`config.yaml` 里 `model.base_url` 设为 `https://api.schyler.top`（缺 `/v1`），辅助请求（title生成）打到网站首页返回 HTML，而 `.env` 的 `OPENAI_BASE_URL` 是带 `/v1` 的，主请求正常 6. 修复：`model.base_url` 补上 `/v1` → `https://api.schyler.top/v1` 7. 重启后 systemd 自动拉起，飞书已重连 ### 教训 - 红牛=上海Hermes服务器，名字记牢了 - 配置文件里 base_url 路径不一致（config.yaml 缺 /v1，.env 有）容易踩坑",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.6328186248043068,
+      "maxScore": 0.6328186248043068,
+      "firstRecalledAt": "2026-05-26T06:00:24.354Z",
+      "lastRecalledAt": "2026-05-26T06:00:24.354Z",
+      "queryHashes": [
+        "ca6200731cc1"
+      ],
+      "recallDays": [
+        "2026-05-26"
+      ],
+      "conceptTags": [
+        "openai",
+        "agent.log",
+        "title-generator",
+        "zh-cn",
+        "config.yaml",
+        "model.base-url",
+        "api.schyler.top",
+        "openai-base-url"
+      ]
+    },
+    "memory:memory/2026-05-25.md:22:46": {
+      "key": "memory:memory/2026-05-25.md:22:46",
+      "path": "memory/2026-05-25.md",
+      "startLine": 22,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "- 收到PDF（8.4MB扫描版），用 HP_Deskjet_3540 黑白高质打印 - 晓东说打这个机器 ## 📊 回天新材(300041) - 5/25大涨+13.28%，收14.25元，成交量异常放大 - 网上价格和数据库对不上，说明采集脚本坏了 ## 🔧 记忆数据库修复（三层记忆系统） - 数据库 ~/.openclaw/mia_memory.duckdb (7.4MB) 结构完好 - conversations表57条记录，但存档cron（每2小时）走的isolated session无法访问当前上下文 - 修复：对话存档cron改为直接调用 ~/go/archive_conversations.py 脚本从会话文件提取 - daily_summary.py 改版：去掉硬编码的GPT-5.5 API调用，改为纯本地Python总结 - 对话总结cron已更新，不再依赖外部API ## 🖥️ 红牛服务器修复（111.229.0.148） - 升级Hermes后奔溃，root cause: config.yaml的 model.api_key 字段在升级时丢失 - 修复：补回Schyler API key，重启Hermes Gateway systemd服务 - 飞书已重新连通 - kanban.db损坏（非标准SQLite格式），影响不大 ## 🌐 首尔Hysteria2 + Trojan部署尝试 - 腾讯云安全组封UDP端口，Hysteria2连不通 - Trojan试了8443端口也被封 - 晓东手动开了UDP 443 → Hy2已连通但速度与SS几",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6185720219197886,
+      "maxScore": 0.9861609444328886,
+      "firstRecalledAt": "2026-05-26T06:00:24.354Z",
+      "lastRecalledAt": "2026-05-27T02:01:10.236Z",
+      "queryHashes": [
+        "ca6200731cc1",
+        "7573f14721ab"
+      ],
+      "recallDays": [
+        "2026-05-26",
+        "2026-05-27"
+      ],
+      "conceptTags": [
+        "gateway",
+        "gpt",
+        "8.4mb扫描版",
+        "hp-deskjet-3540",
+        "5/25大涨",
+        "13.28",
+        "收14.25元",
+        "openclaw/mia-memory.duckdb"
+      ]
+    },
+    "memory:memory/2026-05-28.md:1:26": {
+      "key": "memory:memory/2026-05-28.md:1:26",
+      "path": "memory/2026-05-28.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "26年5月28日(周四): - DeepSeek API 余额 ¥31.09（14:00），晓东中间充了约¥19。今日预估总消耗 ¥0.17。 ## ✈️ OpenClaw 升级 - 小五（上海腾讯云）: 2026.5.18 → 2026.5.26（npm sudo update） - Mac 本地: 2026.5.18 → 2026.5.26（npm update -g） ## 🔧 排行榜超时修复 - 盘中排行榜（11:00）60s超时，实际60.2s，超了0.24秒 - 新闻早报（6:00）120s超时，实际120.1s，超了0.12秒 - 原因：升级后模型调用多了点开销，擦线被砍 - 修复：排行榜 60s→120s，新闻早报 120s→180s ## 🖥️ 毛毛（maomao）配置 - IP: 192.168.3.30（内网备机，Linux x64） - 用户名: maomao - OpenClaw 已装（2026.5.26） - 已完成配置：DeepSeek API key、默认模型 Flash、workspace 路径修复、gateway 启动 - 记忆状态：MEMORY.md 与 Mac 一致，但 daily 记忆停在 5/27 - 微信插件未装（备机不需要） ## 💬 其他 - 晓东问 IgG4 眼病治疗，讨论了 Rituximab 单抗 - 检查 L1 行情正常，Redis 6586 只股票实时更新 - snapshot_sender SSH 间歇性超时（首尔写库导致），非故障",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-29T10:38:18.614Z",
+      "lastRecalledAt": "2026-05-30T04:30:00.077Z",
+      "queryHashes": [
+        "86d1a5158bec",
+        "ca1651d85689",
+        "7191af9b0a50",
+        "1959674455f3"
+      ],
+      "recallDays": [
+        "2026-05-29",
+        "2026-05-30"
+      ],
+      "conceptTags": [
+        "gateway",
+        "31.09",
+        "0.17",
+        "2026.5.18",
+        "2026.5.26",
+        "实际60.2s",
+        "超了0.24秒",
+        "实际120.1s"
+      ]
+    }
+  }
+}
