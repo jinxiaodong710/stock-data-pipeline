@@ -465,6 +465,18 @@ python3.13 -u run_historical_collection.py
 - ✅ 用 `stock_data_collector.py` 的专用接口或完整流程
 - ✅ 补数据前先查现有数据的代码和日期格式
 
+## 🚨 铁律：节假日停推送（2026-06-19 重复犯错）
+**节假日停推送必须两处都关：**
+1. ❌ OpenClaw cron：`openclaw cron list` → disable 所有股票相关任务
+2. ❌ launchd：`launchctl unload ~/Library/LaunchAgents/com.stock.*.plist`
+3. 开市前再重新 load/启动
+
+## 🚨 铁律：主会话不做重排查（2026-06-19）
+- 排查服务器（SSH/诊断/日志检查）必须 spawn 子 agent，
+- 不要在主 session 里直接跑 exec → 输出全灌进上下文，
+- 上下文膨胀到 180k+ 后每轮成本暴涨。
+- 主 session 保持轻量
+
 ## 🏛️ MemPalace 记忆分工（2026-06-07 启用）
 
 | 组件 | 角色 |
