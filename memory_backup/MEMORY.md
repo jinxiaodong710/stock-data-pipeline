@@ -272,6 +272,13 @@ python3.13 -u run_historical_collection.py
 
 ---
 
+## 🚨 铁律：服务器安全加固（2026-07-01）
+
+- 首尔（Soul, 43.155.197.236）已加固：关闭 PasswordAuthentication + 安装 fail2ban
+- Ubuntu 服务器加固标准流程：`sshd_config` 关密码 → `fail2ban` 防爆破
+- 如果新增服务器，第一时间做同样的加固
+- 密钥注册到 authorized_keys 是前提，否则关密码后自己进不去
+
 ## 🖥️ 服务器清单
 
 | 名称 | IP | 系统 | 角色 |
