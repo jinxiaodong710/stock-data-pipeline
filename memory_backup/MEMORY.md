@@ -478,6 +478,14 @@ python3.13 -u run_historical_collection.py
 2. ❌ launchd：`launchctl unload ~/Library/LaunchAgents/com.stock.*.plist`
 3. 开市前再重新 load/启动
 
+## 🚨 铁律：永不碰 Clash/代理进程！（2026-07-15）
+- **绝对禁止** spawn 子 agent 或执行任何可能启动第二个 Clash/mihomo 进程的操作
+- Clash Verge 只有一个 GUI + 一个 mihomo 内核（verge-mihomo），这是正常的一对
+- 不要再手动启动任何 clash/mihomo/verge-mihomo 进程
+- 7897 端口只有一个进程在用
+- 如果发现代理挂了：**汇报晓东，不要自己修**
+- 历史教训：7/15 补采数据时子 agent 的 Tushare API 并发请求打挂了代理，同时出现了两个 mihomo 核心抢 7897 端口导致全网断连
+
 ## 🚨 铁律：主会话不做重排查（2026-06-19）
 - 排查服务器（SSH/诊断/日志检查）必须 spawn 子 agent，
 - 不要在主 session 里直接跑 exec → 输出全灌进上下文，
