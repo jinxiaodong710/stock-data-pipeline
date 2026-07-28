@@ -1,0 +1,11 @@
+{
+  "lastChecks": {
+    "email": null,
+    "calendar": null,
+    "weather": null,
+    "general": 1753682820
+  },
+  "notes": {
+    "memorySearch": "broken - OpenAI API key missing for embeddings provider"
+  }
+}
