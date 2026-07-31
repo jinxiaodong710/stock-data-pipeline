@@ -100,13 +100,14 @@
 
 **丢内容的原因：** 上下文太长主动压缩 / 工具输出截断 / 话题切换弱化旧内容
 
-### 模型切换策略（2026-06-04 更新）
-- **固定用 DeepSeek V4 Pro**（晓东2026-06-04明令）
+### 模型切换策略（2026-07-31 更新）
+- **固定用 DeepSeek V4 Flash 正式版**（晓东2026-07-31明令全局切换）
+- ✅ V4-Flash 正式版 7/31 发布：Agent 能力大幅增强（Terminal Bench 82.7 等），原生支持 Responses API，100万上下文
+- 全局默认模型已改：agents.defaults.model.primary = deepseek/deepseek-v4-flash
+- 所有 cron 任务模型也已全部切到 deepseek/deepseek-v4-flash（9个）
 - 🚫 不用 Grok（6/4 超时120s无响应，晓东不满）
-- 🚫 不用 Flash（之前已禁用）
 - 🚫 不用千问/其他中转模型（6/4 晓东明确要求不要换模型）
-- 日常聊天/改配置/调任务全用 deepseek/deepseek-v4-pro
-- **铁律：Mac 微信会话永远不换模型，只用 DeepSeek Pro**
+- 注意：V4-Pro 正式版未发布，官方说「尽快」；现在仅 Flash 升级
 
 ### 6月5日 Cron 模型加固
 - **所有 cron 任务必须显式指定 model: deepseek/deepseek-v4-pro**
