@@ -285,7 +285,7 @@ python3.13 -u run_historical_collection.py
 | 名称 | IP | 系统 | 角色 |
 |------|-----|------|------|
 | 首尔 | 43.155.197.236 | Ubuntu | 数据中心, Docker |
-| 上海小五 | (腾讯云巡检机) | - | 被调度节点 |
+| 上海小五 | 111.229.134.97 (SSH别名 xiaowu, ubuntu) | - | 被调度节点, OpenClaw, 模型 deepseek/deepseek-v4-flash (2026-08-02切换) |
 | 红牛 | 111.229.0.148 | OpenCloudOS 9.4 | Hermes实例 |
 | **金都** | **111.228.36.114** | **Ubuntu 24.04** | **京东云轻量云（杭州），密码 Duo710710~** |
 | **Soul** | **43.155.197.236** | **Ubuntu 24.04** | **旧首尔，已升级OpenClaw 2026.5.28，gateway:18789** |
