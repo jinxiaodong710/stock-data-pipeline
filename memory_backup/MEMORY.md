@@ -504,3 +504,40 @@ python3.13 -u run_historical_collection.py
 
 **铁律**：问事实时先查 MemPalace，MEMORY.md 只存核心规则不存琐碎数据。
 
+---
+
+## 📺 首尔 tvbox-relay（2026-10-20 新建）
+
+国内电视盒子（腾讯极光盒子6，192.168.3.25）看影视仓用的中转站，跑在首尔。
+
+- 服务：systemd `tvbox-relay.service`，端口 **8080**（腾讯云控制台已放行）
+- 代码：首尔 `~/tvbox-relay/relay.py`（纯 Python 标准库，无依赖）
+- 端点：
+  - `/gh/<path>` → 反代 raw.githubusercontent.com，并自动清洗配置（注释行/尾逗号/裸换行/中文URL）
+  - `/p?u=<url>` → 通用接口反代，JSON 里的 vod_pic 自动改写走 `/img`
+  - `/img?u=<url>` → 封面图床反代
+  - `/tv.json` 27 个直连 CMS 源（接口+封面全走中转，最稳）
+  - `/all.json` 全量合并（❌ 已证明不可用）
+  - `/ysc.json` 多仓、`/ok.json` 逐站实测可用
+- 预热：首尔 crontab 每 5 分钟 curl 一次 /all.json
+- **核心教训**：多个源不能合并成一个单仓——每个源自带不同的 spider jar，合并后只能指定一个 jar，其它 csp_ 源全部失效
+- 图床国内普遍被墙：img.lzipic.com / fffgood.com / p.bfvp26.com 直连 000，首尔 200
+
+## ⚙️ Node 版本约束（2026-10-20 升级后）
+
+- **OpenClaw 2026.10.x 要求 Node ≥24.16 <25 或 ≥26.1.0**
+- Mac：Node **v26.12.0**（官方 tarball，装在 `/opt/homebrew/lib/nodejs/node-v26.12.0-darwin-arm64`）
+  - `/opt/homebrew/bin/node` 和 `/opt/homebrew/opt/node` 都必须指向这个目录（launchd 用 opt 路径）
+  - npm 已设 `prefix=/opt/homebrew`
+- 毛毛：Node 24.22.0 + OpenClaw 2026.10.5
+- ⚠️ **不要用 `brew upgrade node` 做大版本升级**：曾因 brew 升级 ada-url 删掉 libada.3.dylib，导致旧 node dyld 崩溃、gateway 起不来。改用官方 tarball 替换
+- macOS 没有 `setsid`；杀 gateway 要按端口精确杀：`lsof -nP -tiTCP:18789 -sTCP:LISTEN | xargs kill`（进程名是 `openclaw`，pgrep 全路径匹配不到）
+
+## 🔍 股票数据排查要点（2026-10-20）
+
+- **快照表 snapshots 是 code 主键 REPLACE，总行数恒为 6656，判断新鲜度必须看 `max(created_at)`，不能看行数**
+- 排行榜不涨先查 Mac 上 8 个 launchd 任务的加载状态：`launchctl list | grep com.stock`
+  - 正常应有：l1-receiver、writer、snapshot、l1-guardian、healthcheck、push-monitor、ranking-push、daily-collect
+- 同步脚本不能设「源文件 N 分钟内更新」门槛，首尔 17:30 才写库，容易永远跳过；按 `max(date)` 比较
+- `index_prices` 长期停在 2026-05-26（待处理）
+
