@@ -1,11 +1,11 @@
 {
   "lastChecks": {
-    "email": null,
-    "calendar": null,
-    "weather": null,
-    "general": 1753682820
+    "selfcheck": null,
+    "github": null,
+    "question": null
   },
-  "notes": {
-    "memorySearch": "broken - OpenAI API key missing for embeddings provider"
-  }
+  "lastReport": {},
+  "reportedRepos": [],
+  "askedQuestions": [],
+  "note": "心跳状态：lastReport 记录 问题->时间戳，2小时内不重复；reportedRepos 记录推荐过的仓库；askedQuestions 记录问过的问题（24小时内最多1个）"
 }

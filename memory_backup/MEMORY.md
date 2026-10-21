@@ -307,11 +307,12 @@ python3.13 -u run_historical_collection.py
 - 备机: maomao (192.168.3.30)，Mac Mini 挂了就去那台启动
 - 所以：NAS 信息要记住！备份体系也要记住！不然等于白建
 
-### 毛毛（maomao，2026-05-28 配置）
+### 毛毛（maomao，2026-05-28 配置，2026-10-21 升级）
 - IP: 192.168.3.30（内网备机）
-- 系统: Linux x64（6.8.0-100-generic），Node.js 22.20.0
-- 用户: maomao（SSH key 认证）
-- OpenClaw: 2026.5.26（npm 安装，/usr/local/bin/openclaw）
+- 系统: Linux x64（6.8.0-100-generic），Node.js **24.22.0**
+- 用户: maomao（SSH key 认证，sudo 免密）
+- 硬件: **内存 16GB**（两条 Kingston 8GB @1600MT/s，2026-10-21 换装并验证）；磁盘 57G，已用 14G，剩 **41G**（26%）
+- OpenClaw: **2026.10.5**（npm 安装，/usr/local/bin/openclaw；2026-10-21 从 6.11 升级，重启后自启正常、health ok）
 - 模型: deepseek/deepseek-v4-flash（Flash）
 - API Key: sk-159…e259（存于 auth-profiles.json）
 - Gateway: local 模式，127.0.0.1:18789
