@@ -542,3 +542,18 @@ python3.13 -u run_historical_collection.py
 - 同步脚本不能设「源文件 N 分钟内更新」门槛，首尔 17:30 才写库，容易永远跳过；按 `max(date)` 比较
 - `index_prices` 长期停在 2026-05-26（待处理）
 
+## 📰 爱股票要闻接口（2026-10-22）
+
+- **端点**：`GET https://apis.aigupiao.com/Express/express_list/`（JSON，58KB，约 10 条/次）
+- **必须带**：`User-Agent: Mozilla/5.0` + `Referer: https://news.aigupiao.com/`
+- **结构**：`data -> "日期-序号" -> {title, data:[{id, content, rec_time, important, stock_code, theme, url, ai_summary}]}`
+- 按 `id` 去重；`important == "yes"` 是官方标记的重要条
+- 爱股票网页（www/column/news）是 Vue SPA，curl 只能拿到空壳，只有这个 API 能直接拉；需要渲染时才用浏览器
+- **晓东明令：不做定时推送**，只在他问的时候拉取（省钱）
+
+## 💰 成本纪律（2026-10-22 定）
+
+- **长会话是最大的成本源**：每轮都要重放全部历史，单次请求 token 会从 25 万涨到 130 万
+- 对策：① 会话连续超过 6 小时或超过 120 条消息 → **主动提醒晓东发 `/new`**（每天最多 1 次）② 看日志只取尾部 20 行或按关键词过滤，不整段拉 ③ 少发大截图，必要时只截关键区域
+- 心跳：10% 自检 / 5% 找项目 / 5% 问一个问题 / 80% 沉默；23:00–07:00 只报紧急
+
