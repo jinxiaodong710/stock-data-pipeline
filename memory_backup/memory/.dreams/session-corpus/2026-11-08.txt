@@ -1,0 +1,4 @@
+[main/sessions/main/bea8c423-7592-418d-a13c-c29f8c54f0bb#L8] User: 只回复：ok
+[main/sessions/main/bea8c423-7592-418d-a13c-c29f8c54f0bb#L9] Assistant: ok
+[main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1530] User: 更换flash模型
+[main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1599] Assistant: 已切换完成 ✅ 默认模型从 `deepseek-v4-pro` 换成了新的 **`deepseek-flash`（DeepSeek V4.1 Flash 1017 版）**。 几个关键点： - 配置里其实有两个 flash：旧的 `deepseek-v4-flash`（已标记为 legacy alias）和新的 `deepseek-flash`（V4.1 Flash 1017 正式版）。我切到的是**新版**。 - 改动已写入 `~/.openclaw/openclaw.json`（自动备份到 `.bak`），并验证生效。 - 每日
