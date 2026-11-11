@@ -26,3 +26,6 @@
 [main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1803] Assistant: 升级完成啦 ✅ **2026.10.5 → 2026.11.1**，这次是个大版本（包含 78 个 PR 的累积更新）。给你挑重点说说： **跟你日常使用相关的：** - 🔄 **更新恢复更稳了**：以后再升级，卡住/崩溃能自动恢复，不会像刚才那样卡在"验证中" - 💬 **频道回复更可靠**：Telegram/Discord/webhook 消息不再因为中断丢回复（微信通道的稳定性也一并改善） - 🧠 **子 agent 更稳**：换模型/换会话时子任务能保住，审批能正常回传给主会话——这正是咱们微信 session「主会话
 [main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1814] Assistant: 好的晓东哥哥，我来把 Node 也升级到 26.13.0（最新 LTS，修复了那个证书安全问题）。先下载并校验官方安装包：
 [main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1830] Assistant: Node 已经换好了，我再确认一下当前状态并把 Gateway 切到新版本上。
+[main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1841] Assistant: 全部搞定啦晓东哥哥 ✅ 给你汇报一下： **Node 升级完成** - 🔄 **26.12.0 → 26.13.0**（最新 LTS "Lithium"） - ✅ 官方安装包下载，SHA-256 校验通过 - ✅ 软链切换完成，`node -v`、`/opt/homebrew/opt/node/bin/node -v` 都已确认是 26.13.0 - ✅ 配置校验通过（`Config valid`） - 📦 旧版 26.12.0 目录保留着，随时可回滚 **Gateway 重启已调度** - 现在这个 Gateway 进程还在内
+[main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1843] User: 昨天你修改过的小马 影视仓地址再发一次
+[main/sessions/main/a5c381f3-9cd1-4dfe-92bf-0002b5330fe2#L1885] Assistant: 找到啦晓东哥哥，刚还帮你实测了一下，地址依然活着 ✅ **小马影视仓 · 配置地址：** ``` https://szyyds.cn/tv/x.json ``` - 实测：HTTP 200，JSON 合法，**62 个站点**，约 30KB - 属于"中等体量"，比 298 站的 gao 轻很多，盒子不容易闪退 - 直接填「配置地址」单接口就能用 如果这个源哪天失效了，跟我说一声，我再帮你测一批新的～ 🌸
