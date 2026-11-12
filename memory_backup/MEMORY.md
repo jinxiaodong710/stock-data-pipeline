@@ -327,7 +327,7 @@ python3.13 -u run_historical_collection.py
 - Python 3.11.6 已自带，未装 Docker/Node.js/Git
 - 密码: 6cvhmR9M:%UC+
 - 角色: Hermes Agent 网关（systemd user service: hermes-gateway.service）
-- 模型: gpt-5.5 via Schyler中转 (https://api.schyler.top/v1)
+- 模型: deepseek/deepseek-v4-flash (base_url https://api.deepseek.com/v1, provider openai-api；2026-11-12 确认已从 Schyler GPT-5.5 切换)
 - 平台: 飞书 websocket
 
 ---
