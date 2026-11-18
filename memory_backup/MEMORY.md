@@ -287,9 +287,69 @@ python3.13 -u run_historical_collection.py
 | 首尔 | 43.155.197.236 | Ubuntu | 数据中心, Docker |
 | 上海小五 | 111.229.134.97 (SSH别名 xiaowu, ubuntu) | - | 被调度节点, OpenClaw, 模型 deepseek/deepseek-v4-flash (2026-08-02切换) |
 | 红牛 | 111.229.0.148 | OpenCloudOS 9.4 | Hermes实例 |
-| **金都** | **111.228.36.114** | **Ubuntu 24.04** | **京东云轻量云（杭州），密码 Duo710710~** |
+| **金都** | **111.228.36.114** (SSH别名 jindu/金都, root) | **Ubuntu 24.04** | **京东云轻量云（杭州）。2026-11-18 起接管小五全部职能：OpenClaw gateway 18789（systemd `openclaw-gateway`）、巡检 cron、首尔同步、数据推送目标** |
 | **Soul** | **43.155.197.236** | **Ubuntu 24.04** | **旧首尔，已升级OpenClaw 2026.5.28，gateway:18789** |
 | NAS | 192.168.3.40 | UGREEN-1460 | 绿联NAS，SMB共享 |
+
+### 🔄 小五 → 金都 迁移记录（2026-11-18 完成）
+
+小五（腾讯云轻量 lhins-kuoQ3cci）2026-11-28 到期，续费 600+/年 → **不续费**，职能迁金都。
+
+**金都现状**
+- Node 22.22.2（/usr/local/node，软链到 /usr/local/bin）+ OpenClaw 2026.6.1（同小五版本）
+- 数据/脚本：`/root/go`（含 stock_data.duckdb，7,762,547 行，max=2026-11-17）、`/root/english_exam_bank`
+- 服务：systemd `openclaw-gateway`（已 enable 自启，18789，health ok）
+- cron（root）：巡检每 2h、周日 03:00 `systemctl restart openclaw-gateway`、工作日 02:00 `sync_from_seoul.sh`
+- 防火墙：ufw 启用，仅放 22 + 18789（原来 ufw 是关的）
+- 脚本内路径已从 `/home/ubuntu` 批量改为 `/root`；注意 `sync_from_seoul.sh` 的 **SRC_PATH 必须保持 /home/ubuntu/...**（那是首尔上的路径），只有 DST_PATH 改 /root
+- 内存插曲：重启前 Slab 泄漏 2.5GB（kmalloc-2k + skbuff 各 108 万对象，169 天累积），重启后可用内存 874M → 3.3G
+- 已停用无关服务：fwupd / ModemManager / multipathd / udisks2 / upower / nscd（京东云 4 个 agent 保留，仅占 38MB）
+
+**Mac 侧改动**
+- `~/.ssh/config` 新增 `jindu` 别名（111.228.36.114 root）
+- `~/go/collect_and_push.py` 增量与全量推送各加一条 `jindu`（/root/go/data/...），**与小五双推；11-28 后删除 xiaowu 两行**（备份 .bak_20261118）
+- 新增 `~/Library/LaunchAgents/com.jindu.tunnel.plist`：18903 → 金都 18789，已加载可用
+- `com.xiaowu.tunnel`（18902）等 11-28 停机后 disable 并可删除
+
+**飞书频道（已在 2026-11-18 17:20 完成切换）**
+- 小五与金都共用同一飞书 appId `cli_aa86540948b8dcb3`；红牛是另一个 app `cli_aa85bc9a45b99bdf`（不冲突）
+- 金都需装插件 `openclaw plugins install @openclaw/feishu`，配置里 `channels.feishu.enabled=true`
+- 状态：`openclaw channels status` → Feishu default: enabled, configured, **running**
+- 那份 "receive events ... self-build app" 告警在小五上一直也有，属正常提示
+
+**✅ 切换记录（2026-11-18 17:20，比原计划 11-27 提前）**
+- 小五网关 `systemctl --user stop + disable`，已 inactive/disabled
+- 金都飞书已开启并 running；`plugins.entries.openclaw-feishu` 失效条目已清理
+- Mac `com.xiaowu.tunnel.plist` 已 bootout 并改名 `.disabled`；`com.jindu.tunnel`（18903）正常
+- 小五服务器仍在线（uptime 184 天），保留 SSH 与 `/home/ubuntu/go/data`，**11-28 到期前继续双推当备份**
+- 巡检脚本自检 127.0.0.1:18789 → 现在检测的是金都自己的网关，输出仍自称「小五」
+
+**踩坑记录**
+- `openclaw.json` 是严格 schema：加自定义顶层键（如 `_migration`）会导致 `Gateway failed to start: Invalid config`。改配置只能改已存在的字段
+- 配置校验失败会连撞 5 次 StartLimitBurst，之后必须 `systemctl reset-failed openclaw-gateway` 才能再启动
+- 备份文件：`/root/.openclaw/openclaw.json.bak_20261118`
+
+**命名说明**：巡检脚本仍自称「小五」（agent 人格名保留），实际跑在金都；机器层面叫金都。
+
+### ⏳ 服务器到期台账（2026-11-18 建，待控制台核准）
+
+计费口径：金都 3 年一付；首尔 3 年一付（控制台截图实测）；小五/红牛 1 年一续（晓东口述 2026-11-18）。
+到期日按「首次开机日 + 付费周期」推算，续费是按到期日顺延，周年日不变。
+
+| 机器 | 首次开机（服务器实测） | 周期 | 推算到期 | 置信度 |
+|------|--------------------|------|---------|--------|
+| 首尔 43.155.197.236 | 2026-05-17 21:29:47 | 3 年 | **2028-05-17 21:29:47** | ✅ 控制台截图确认（lhins-ni76chvi） |
+| 小五 111.229.134.97 | 2025-11-28 15:58:03 | 1 年 | **2026-11-28 15:58:03** | ✅ 控制台截图确认（lhins-kuoQ3cci，轻量「宝塔Windows面板-7lgu」） |
+| 红牛 111.229.0.148 | 2026-05-21（cloud-init 首启） | 1 年 | **2027-05-21** | 中（不在晓东账号，需向机器主人核实） |
+| 金都 111.228.36.114 | 2025-09-24（/lost+found） | 3 年 | **2028-09-24** | 中（京东云，3年为晓东口述） |
+
+⚠️ 首尔「自动续费：已关闭」——到期前必须手动续，否则停机。
+🚨 小五 2026-11-28 15:58 到期（截图 2026-11-18 确认，剩 10 天）。**决定：不续费**——续费要 600+/年，性价比太低，功能整体迁移到金都，小五留作到期前回退；以后需要再新开一台（2026-11-18 晓东拍板）。
+   注：小五磁盘 lost+found 显示 2024-04-26，是宝塔 Windows 镜像自带的时间戳，不能当购机日；实例真实创建时间 2025-11-28。
+首尔规格：轻量 2核4G/60G，峰值带宽 50Mbps，月流量 1536GB（2026-11-18 截图实测，早前记的 30Mbps 已过时）。
+
+核验方式：腾讯云控制台 → 云服务器/轻量 → 实例列表看「到期时间」；或用只读 API 密钥 `cvm DescribeInstances` 读 `ExpiredTime`。
+提醒计划：到期前 30 天 / 7 天 / 1 天。
 
 ### NAS（2026-05-24）
 - IP: 192.168.3.40（内网）
